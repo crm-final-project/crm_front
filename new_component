@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Script para crear componentes React *.JSX
+# -------------------------------------------
+# Autor: Ronnie B.M.
+#
+#  ----Sintaxis en linea de comandos----:
+#
+# ./<script> <NombreDelComponente> <Ruta donde se creará >
+#
+# Ejemplo en Shell bash (linux):
+# ./new_component MyNewComponent ./src/components/atoms/
+#
+# Salida:
+#  (...)
+#  |____atoms
+#       |____MyNewComponent
+#            |__index.js
+#            |__MyNewComponent.jsx
+#            |__mynewcomponent.scss
+#
+
+name="$1"
+path="$2"
+mkdir $path$name
+text="export const $name = (props) => {\n\treturn <div className={\`\${props.className}\`}>created: $name</div>\n};"
+
+echo "export { $name } from './$name'" > $path$name/index.js
+echo -e $text > $path$name/$name.jsx
+# echo -e '' > $path$name/${name,,}.scss

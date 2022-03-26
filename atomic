@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# ============================
+# Atomic Design Script -------
+# created by: Ronnie B.M.
+# github:  ronniebm
+# ============================
+
+#0. Declaring variables.
+root="./src/components"
+atoms="$root/atoms/"
+molecules="$root/molecules/"
+organisms="$root/organisms/"
+
+#1. Specify the component's file.
+input="atomic-list"
+
+#2. Create Components directory.
+mkdir -p $root/atoms $root/molecules $root/organisms $root/pages $root/ui
+rm -rf $atoms/index.js $molecules/index.js $organisms/index.js
+touch $root/atoms/index.js $root/molecules/index.js $root/organisms/index.js
+
+
+while IFS= read -r line
+do
+  ATOM='a-'
+  MOL='m-'
+  ORG='o-'
+
+  echo ${line:2}
+  name=${line:2}
+  text="export const $name = (props) => {\n\treturn <div className={\`\${props.className}\`}>-$name component-</div>\n};"
+  #with scss styles: text="import './${name,,}.scss';\n\nexport const $name = (props) => {\n\treturn <div className={\`\${props.className}\`}>created: $name</div>\n};"
+  
+  if [[ "$line" == *"$ATOM"* ]]; then
+    path=${atoms}
+  elif [[ "$line" == *"$MOL"* ]]; then
+    path=${molecules}
+  elif [[ "$line" == *"$ORG"* ]]; then
+    path=${organisms}
+  fi
+  
+  echo -e "export { $name } from './$name';" >> $path/index.js
+  mkdir $path$name
+  echo "export { $name } from './$name'" > $path$name/index.js
+  echo -e $text > $path$name/$name.jsx
+  #create scss file: echo -e '' > $path$name/${name,,}.scss
+done < "$input"
