@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+export default createTheme({
   palette: {
     primary: {
       main: '#0D3411',
@@ -90,5 +90,3 @@ const theme = createTheme({
     letterSpacing: '0.01071em',
   },
 });
-
-export default theme;

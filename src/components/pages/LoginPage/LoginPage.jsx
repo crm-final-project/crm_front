@@ -1,3 +1,7 @@
+import { UserLogin } from "../../ui/organisms";
+
 export const LoginPage = (props) => {
-	return <div className={`${props.className}`}>-LoginPage component-</div>
+	return <div >
+		<UserLogin />
+	</div>
 };
