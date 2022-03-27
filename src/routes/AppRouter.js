@@ -1,18 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import LoginPage from '../components/pages/LoginPage/LoginPage';
-import Four0Four from '../components/pages/404/Four0Four';
-
-// import Header from '../components/ui/Header';
+import { Routes, Route } from 'react-router-dom';
+import { LandingPage, LoginPage, Four0Four } from '../components/pages';
 
 const AppRouter = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" component={LoginPage} />
-        <Route path="*" component={Four0Four} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path='/' element={<LandingPage />} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path='*' element={<Four0Four />} />
+    </Routes>
   );
 };
 
