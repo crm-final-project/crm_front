@@ -10,6 +10,7 @@ m-HeaderBar
 m-LoginForm
 m-RegisterForm
 m-LoginOptions
+m-FlowOptions
 
 o-UserLogin
 o-UserRegForm
