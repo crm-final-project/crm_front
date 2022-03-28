@@ -1,3 +1,9 @@
+import { UserRegForm } from '../../ui/organisms';
+
 export const UserRegPage = (props) => {
-	return <div className={`${props.className}`}>-UserRegPage component-</div>
+  return (
+    <div>
+      <UserRegForm />
+    </div>
+  );
 };

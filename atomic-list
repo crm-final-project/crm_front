@@ -8,9 +8,11 @@ a-BtnLight
 
 m-HeaderBar
 m-LoginForm
+m-RegisterForm
 m-LoginOptions
 
 o-UserLogin
+o-UserRegForm
 
 p-LoginPage
 p-Four0Four
