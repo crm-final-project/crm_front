@@ -7,10 +7,13 @@ a-BtnLink
 m-HeaderBar
 m-LoginForm
 m-LoginOptions
+m-ValidateEmailForm
 
 o-UserLogin
+o-ValidateEmail
 
 p-LoginPage
 p-Four0Four
 p-LandingPage
+p-ValidateEmailPage
 
