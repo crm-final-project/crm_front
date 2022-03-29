@@ -3,17 +3,23 @@ a-Brand
 a-Input
 a-BtnLogin
 a-BtnLink
+a-Selector
+a-BtnLight
 
 m-HeaderBar
 m-LoginForm
+m-RegisterForm
 m-LoginOptions
 m-ValidateEmailForm
+m-FlowOptions
 
-o-UserLogin
 o-ValidateEmail
+o-UserLogin
+o-UserRegForm
 
 p-LoginPage
 p-Four0Four
 p-LandingPage
 p-ValidateEmailPage
+p-UserRegPage
 

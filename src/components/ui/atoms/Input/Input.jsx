@@ -13,6 +13,7 @@ export const Input
 			id={props.id}
 			type={props.type}
 			autoComplete={props.autoComplete}
+      sx={props.sx}
     />
   );
 };
