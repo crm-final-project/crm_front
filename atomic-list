@@ -10,12 +10,16 @@ m-HeaderBar
 m-LoginForm
 m-RegisterForm
 m-LoginOptions
+m-ValidateEmailForm
 m-FlowOptions
 
+o-ValidateEmail
 o-UserLogin
 o-UserRegForm
 
 p-LoginPage
 p-Four0Four
 p-LandingPage
+p-ValidateEmailPage
 p-UserRegPage
+
