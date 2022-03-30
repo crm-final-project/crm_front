@@ -1,0 +1,72 @@
+.no_margins {
+  margin: 0;
+}
+/*--- list item styles ---*/
+.list_itemR {
+  cursor: pointer;
+}
+.list_itemR:hover {
+  background-color: rgb(235, 231, 231);
+}
+.list_itemR_top,
+.list_itemR_bottom {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 23px;
+  padding: 0 3%;
+  font-size: 14px;
+}
+.list_itemR_bottom {
+  border-bottom: 1px solid gray;
+  height: 35px;
+}
+.list_itemR_top__client,
+.list_itemR_top__date {
+  margin: 0;
+}
+.list_itemR_top__client,
+.list_itemR_bottom__price {
+  width: 67%;
+}
+.list_itemR_top__date,
+.list_itemR_bottom__time {
+  width: 33%;
+  text-align: right;
+}
+.list_itemR_bottom__price {
+  font-weight: 600;
+  font-size: 16px;
+}
+/* my-quotes-org-box */
+.my-quotes-org-box {
+    padding-top: 60px;
+}
+.my-quotes-org__detail {
+  display: none;
+}
+.my-quotes-org-box__list,
+.my-quotes-org-box__detail {
+  /* margin-top: 60px; */
+}
+
+@media only screen and (min-width: 600px) {
+  .my-quotes-org-box {
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    padding-top: 90px;
+  }
+  .my-quotes-org-box__list {
+    width: 500px;
+    background-color: red;
+  }
+}
+
+@media only screen and (min-width: 1180px) {
+  .my-quotes-org__detail {
+    display: block;
+    width: 680px;
+    background-color: violet;
+  }
+}

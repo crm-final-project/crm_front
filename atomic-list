@@ -5,17 +5,26 @@ a-BtnLogin
 a-BtnLink
 a-Selector
 a-BtnLight
+a-TotalCash
+a-TabR
+a-ListItemR
 
 m-HeaderBar
 m-LoginForm
 m-RegisterForm
 m-LoginOptions
 m-FlowOptions
+m-TabsBarR
+m-ListR
+m-QuoteDetailR
 
 o-UserLogin
 o-UserRegForm
+o-MyQuotesOrg
+
 
 p-LoginPage
 p-Four0Four
 p-LandingPage
 p-UserRegPage
+p-MyQuotesPage

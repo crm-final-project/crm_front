@@ -3,7 +3,6 @@ import * as React from 'react';
 // Import components Material UI
 import {
   Avatar,
-  CssBaseline,
   FormControlLabel,
   Checkbox,
   Link,
@@ -42,7 +41,6 @@ export const LoginForm
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,

@@ -1,5 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import { LandingPage, LoginPage, Four0Four, UserRegPage } from '../components/pages';
+import {
+  Four0Four,
+  LandingPage,
+  LoginPage,
+  MyQuotesPage,
+  UserRegPage,
+} from '../components/pages';
 
 const AppRouter = () => {
   return (
@@ -7,6 +13,7 @@ const AppRouter = () => {
       <Route path='/' element={<LandingPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/register' element={<UserRegPage />} />
+      <Route path='/myquotes' element={<MyQuotesPage />} />
       <Route path='*' element={<Four0Four />} />
     </Routes>
   );

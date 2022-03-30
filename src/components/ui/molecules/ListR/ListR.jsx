@@ -1,0 +1,24 @@
+import { Box, Container } from '@mui/material';
+import { ListItemR } from '../../atoms';
+
+const STYLES = {
+  BOX: {
+    display: 'flex',
+    flexDirection: 'column',
+    overflowY: 'scroll',
+    height: '55vh',
+	backgroundColor: '#f5f5f5',
+  },
+};
+
+export const ListR = (props) => {
+  return (
+    <Container component='main' maxWidth='xs'>
+      <Box sx={STYLES.BOX}>
+        {props.data.map((item, index) => {
+          return <ListItemR {...item} key={index} />;
+        })}
+      </Box>
+    </Container>
+  );
+};
