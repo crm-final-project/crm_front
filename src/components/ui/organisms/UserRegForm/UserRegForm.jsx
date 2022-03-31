@@ -6,7 +6,7 @@ export const UserRegForm = (props) => {
     <>
       <HeaderBar />
       <RegisterForm />
-      <FlowOptions />
+      <FlowOptions btn1_title='cancel' btn2_title='continue' />
     </>
   );
 };

@@ -6,7 +6,7 @@ const STYLES = {
 
 export const ListItemR = (props) => {
   return (
-    <Box sx={STYLES.BOX} className='list_itemR'>
+    <Box sx={STYLES.BOX} className='list_itemR' onClick={props.onClick}>
       <Box className='list_itemR_top'>
         <p className='list_itemR_top__client'>{props.client}</p>
         <p className='list_itemR_top__date'>{props.date}</p>
