@@ -1,0 +1,199 @@
+.no_margins {
+  margin: 0;
+}
+.modal-active {
+  display: block;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+/*--- list item styles ---*/
+.list_itemR {
+  cursor: pointer;
+}
+.list_itemR:hover {
+  background-color: rgb(235, 231, 231);
+}
+.list_itemR_top,
+.list_itemR_bottom {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 23px;
+  padding: 0 3%;
+  font-size: 14px;
+}
+.list_itemR_bottom {
+  border-bottom: 1px solid gray;
+  height: 35px;
+}
+.list_itemR_top__client,
+.list_itemR_top__date {
+  margin: 0;
+}
+.list_itemR_top__client,
+.list_itemR_bottom__price {
+  width: 67%;
+}
+.list_itemR_top__date,
+.list_itemR_bottom__time {
+  width: 33%;
+  text-align: right;
+}
+.list_itemR_bottom__price {
+  font-weight: 600;
+  font-size: 16px;
+}
+/* my-quotes-org-box */
+.my-quotes-org-box {
+  padding-top: 60px;
+}
+.my-quotes-org__detail {
+  display: none;
+}
+.my-quotes-org-box__list {
+  display: 'flex';
+  flex-direction: 'column';
+  align-items: 'center';
+}
+/* mobile styles for detail r box */
+.quote-detail-r-box-mobile {
+  background-color: rgba(0, 0, 0);
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 2000px;
+  padding: 0 5%;
+  padding-top: 90px;
+  height: fit-content !important;
+}
+.quote-detail-r-box-mobile-01 {
+  display: flex;
+  justify-content: space-between;
+}
+.quote-detail-r-box-mobile-02a {
+  display: flex;
+  justify-content: space-between;
+}
+.quote-detail-r-box-mobile-03__item {
+    margin: 3vh 0;
+}
+.quote-detail-r-box-mobile-03__item-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+.quote-detail-r-box-mobile-05 {
+  background-color: black;
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+  position: initial;
+}
+.quote-detail-r-box-mobile-container {
+  position: absolute;
+  background-color: rgba(0, 0, 0);
+  z-index: 1;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .my-quotes-org-box {
+    display: flex;
+    justify-content: center;
+    padding-top: 90px;
+  }
+  .my-quotes-org-box__list,
+  .my-quotes-org__detail {
+    height: 700px;
+  }
+  .quote-detail-r-box-desktop {
+    margin: 24px 30px 0 30px;
+    height: 670px;
+  }
+  .my-quotes-org-box__list {
+    width: 400px;
+  }
+  /* mobile styles for detail r box */
+  .quote-detail-r-box-mobile {
+    padding: 0 20vw;
+    padding-top: 90px;
+    height: fill;
+    position: initial;
+  }
+  .quote-detail-r-box-mobile-05 {
+    width: 60vw;
+  }
+}
+
+@media only screen and (min-width: 1180px) {
+  .my-quotes-org__detail {
+    display: block;
+    width: 680px;
+  }
+  .quote-detail-r-box-desktop {
+    margin: 24px 30px 0 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  /* desktop styles for detail r box */
+  .quote-detail-r-box-desktop {
+    padding: 20px 20px;
+    width: 600px;
+  }
+  .quote-detail-r-box-desktop-01 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .quote-detail-r-box-desktop-01__client {
+    width: 75%;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .quote-detail-r-box-desktop-02__total {
+    background-color: violet;
+    padding: 0 !important;
+    width: 100%;
+    height: 100px;
+  }
+  .quote-detail-r-box-desktop-02a {
+    display: flex;
+    justify-content: space-between;
+  }
+  .quote-detail-r-box-desktop-03__item {
+    padding: 10px 0;
+  }
+  .quote-detail-r-box-desktop-03__item-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+  }
+  .quote-detail-r-box-desktop-03-scroll-y {
+    overflow-y: scroll;
+    height: 40%;
+    background-color: rgb(236, 247, 236);
+  }
+  .quote-detail-r-box-desktop-04 {
+    background-color: lightgray;
+    margin-top: 20px;
+  }
+  .quote-detail-r-box-desktop-04__note {
+    margin: 5px 0;
+  }
+  .quote-detail-r-box-desktop-04-scroll-y {
+    background-color: rgb(236, 247, 236);
+    overflow-y: scroll;
+    height: 20%;
+  }
+  .quote-detail-r-box-desktop-05 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    width: 600px;
+    padding: 0 -50px;
+    transform: translateX(-20px);
+  }
+}

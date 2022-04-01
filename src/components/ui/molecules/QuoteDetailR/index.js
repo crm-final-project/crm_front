@@ -1,0 +1,1 @@
+export { QuoteDetailR } from './QuoteDetailR'
