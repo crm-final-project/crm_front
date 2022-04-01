@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import {
-  Four0Four,
   LandingPage,
   LoginPage,
+  Four0Four,
   MyQuotesPage,
   UserRegPage,
+  ValidateEmailPage,
 } from '../components/pages';
 
 const AppRouter = () => {
@@ -14,6 +15,7 @@ const AppRouter = () => {
       <Route path='/login' element={<LoginPage />} />
       <Route path='/register' element={<UserRegPage />} />
       <Route path='/myquotes' element={<MyQuotesPage />} />
+      <Route path='/validate' element={<ValidateEmailPage/>}/>
       <Route path='*' element={<Four0Four />} />
     </Routes>
   );
