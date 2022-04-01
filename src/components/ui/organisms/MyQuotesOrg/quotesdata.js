@@ -16,11 +16,6 @@ export const DATA = {
           price: '150.000',
           qty: '3',
         },
-        {
-          text: 'Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum.',
-          price: '100.000',
-          qty: '2',
-        },
       ],
       notes: [
         {
@@ -75,6 +70,15 @@ export const DATA = {
         },
         {
           text: 'Note description #03',
+        },
+        {
+          text: 'Note description #04',
+        },
+        {
+          text: 'Note description #05',
+        },
+        {
+          text: 'Note description #06',
         },
       ],
     },

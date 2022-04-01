@@ -6,9 +6,9 @@ const STYLES = {
     display: 'flex',
     flexDirection: 'column',
     overflowY: 'scroll',
-    height: '50vh',
-	backgroundColor: '#f5f5f5',
-  },
+    height: '470px',
+	  backgroundColor: '#f5f5f5',
+  }
 };
 
 export const ListR = (props) => {
