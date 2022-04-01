@@ -1,4 +1,5 @@
 export { Brand } from './Brand';
+export { BtnClose } from './BtnClose';
 export { BtnLight } from './BtnLight';
 export { BtnLink } from './BtnLink';
 export { BtnLogin } from './BtnLogin';

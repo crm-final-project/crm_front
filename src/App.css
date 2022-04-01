@@ -1,6 +1,9 @@
 .no_margins {
   margin: 0;
 }
+.modal-active {
+  display: block;
+}
 .overflow-y-scroll {
   overflow-y: scroll;
 }
@@ -55,14 +58,16 @@
 }
 /* mobile styles for detail r box */
 .quote-detail-r-box-mobile {
-  background-color: rgba(0, 0, 0, 0.877);
+  background-color: rgba(0, 0, 0);
   color: white;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
+  height: 2000px;
   padding: 0 5%;
   padding-top: 90px;
+  height: fit-content !important;
 }
 .quote-detail-r-box-mobile-01 {
   display: flex;
@@ -80,6 +85,19 @@
   justify-content: space-between;
   border-bottom: 1px solid white;
 }
+.quote-detail-r-box-mobile-05 {
+  background-color: black;
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+  position: initial;
+}
+.quote-detail-r-box-mobile-container {
+  position: absolute;
+  background-color: rgba(0, 0, 0);
+  z-index: 1;
+}
+
 
 @media only screen and (min-width: 600px) {
   .my-quotes-org-box {
@@ -103,6 +121,10 @@
     padding: 0 20vw;
     padding-top: 90px;
     height: fill;
+    position: initial;
+  }
+  .quote-detail-r-box-mobile-05 {
+    width: 60vw;
   }
 }
 
@@ -169,8 +191,9 @@
   .quote-detail-r-box-desktop-05 {
     display: flex;
     justify-content: space-between;
-    margin: 5px 30px;
+    margin-top: 60px;
     width: 600px;
+    padding: 0 -50px;
+    transform: translateX(-20px);
   }
-  
 }

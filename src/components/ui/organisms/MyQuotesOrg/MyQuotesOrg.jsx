@@ -12,6 +12,7 @@ import {
 
 export const MyQuotesOrg = (props) => {
   const [activeTab, setActiveTab] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [currentQuote, setCurrentQuote] = useState(DATA.month[0]);
   const [cashVal, setCashVal] = useState('9.999.990');
 
@@ -24,6 +25,10 @@ export const MyQuotesOrg = (props) => {
       status: currentQuote,
       setter: setCurrentQuote,
     },
+    showModal: {
+      status: showModal,
+      setter: setShowModal,
+    }
   };
 
   return (
@@ -35,7 +40,7 @@ export const MyQuotesOrg = (props) => {
           <TotalCash val={cashVal} className='quote-detail-r-box__total-list' />
         </Container>
         <TabsBarR states={states} data={activeTab ? DATA.month : DATA.older} val1={DATA.month.length} val2={DATA.older.length} />
-        <ListR states={states} data={activeTab ? DATA.month : DATA.older} />
+        <ListR states={states} data={activeTab ? DATA.month : DATA.older} view={props.view} />
       </Box>
 
       <Box className='my-quotes-org__detail'>
