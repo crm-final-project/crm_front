@@ -1,1 +1,1 @@
-export { TabsBarR } from './TabsBarR'
+export { TabsBarR } from './TabsBarR';
