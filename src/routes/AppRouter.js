@@ -6,6 +6,7 @@ import {
   MyQuotesPage,
   UserRegPage,
   ValidateEmailPage,
+  RecoveryAccountPage,
 } from '../components/pages';
 
 const AppRouter = () => {
@@ -16,6 +17,7 @@ const AppRouter = () => {
       <Route path='/register' element={<UserRegPage />} />
       <Route path='/myquotes' element={<MyQuotesPage />} />
       <Route path='/validate' element={<ValidateEmailPage/>}/>
+      <Route path='/recovery' element={<RecoveryAccountPage/>}/>
       <Route path='*' element={<Four0Four />} />
     </Routes>
   );
