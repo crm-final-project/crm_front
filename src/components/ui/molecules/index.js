@@ -4,6 +4,7 @@ export { ListR } from './ListR';
 export { LoginForm } from './LoginForm';
 export { LoginOptions } from './LoginOptions';
 export { QuoteDetailR } from './QuoteDetailR';
-export { ValidateEmailForm } from './ValidateEmailForm';
+export { RecoveryAccountForm } from './RecoveryAccountForm';
 export { RegisterForm } from './RegisterForm';
 export { TabsBarR } from './TabsBarR';
+export { ValidateEmailForm } from './ValidateEmailForm';

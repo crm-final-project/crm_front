@@ -20,11 +20,13 @@ m-FlowOptions
 m-TabsBarR
 m-ListR
 m-QuoteDetailR
+m-RecoveryAccountForm
 
 o-ValidateEmail
 o-UserLogin
 o-UserRegForm
 o-MyQuotesOrg
+o-RecoveryAccount
 
 
 p-LoginPage
@@ -33,4 +35,5 @@ p-LandingPage
 p-ValidateEmailPage
 p-UserRegPage
 p-MyQuotesPage
+p-RecoveryAccountPage
 
