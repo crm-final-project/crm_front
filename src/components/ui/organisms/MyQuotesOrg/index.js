@@ -1,0 +1,1 @@
+export { MyQuotesOrg } from './MyQuotesOrg'

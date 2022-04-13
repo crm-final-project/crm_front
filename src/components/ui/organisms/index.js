@@ -1,1 +1,9 @@
+export { MyQuotesOrg } from './MyQuotesOrg';
 export { UserLogin } from './UserLogin';
+export { ValidateEmail } from './ValidateEmail';
+export { UserRegForm } from './UserRegForm';
+export { HeroSection } from './HeroSection';
+export { StepSection } from './StepSection';
+export { QuoteSection } from './QuoteSection';
+export { CtaSection } from './CtaSection';
+export { Footer } from './Footer';

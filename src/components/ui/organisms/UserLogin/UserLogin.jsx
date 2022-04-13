@@ -1,3 +1,11 @@
+import { HeaderBar } from '../../molecules';
+import { LoginForm } from '../../molecules';
+
 export const UserLogin = (props) => {
-	return <div className={`${props.className}`}>-UserLogin component-</div>
+  return (
+    <>
+      <HeaderBar />
+      <LoginForm />
+    </>
+  );
 };

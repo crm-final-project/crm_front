@@ -3,14 +3,34 @@ a-Brand
 a-Input
 a-BtnLogin
 a-BtnLink
+a-Selector
+a-BtnLight
+a-TotalCash
+a-TabR
+a-ListItemR
+a-QuoteItemR
+a-BtnClose
 
 m-HeaderBar
 m-LoginForm
+m-RegisterForm
 m-LoginOptions
+m-ValidateEmailForm
+m-FlowOptions
+m-TabsBarR
+m-ListR
+m-QuoteDetailR
 
+o-ValidateEmail
 o-UserLogin
+o-UserRegForm
+o-MyQuotesOrg
+
 
 p-LoginPage
 p-Four0Four
 p-LandingPage
+p-ValidateEmailPage
+p-UserRegPage
+p-MyQuotesPage
 
