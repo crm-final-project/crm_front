@@ -1,0 +1,1 @@
+export { QuotesNewPage } from './QuotesNewPage'

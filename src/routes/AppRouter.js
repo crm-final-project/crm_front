@@ -3,7 +3,8 @@ import {
   LandingPage,
   LoginPage,
   Four0Four,
-  MyQuotesPage,
+  QuotesPage,
+  QuotesNewPage,
   UserRegPage,
   ValidateEmailPage,
 } from '../components/pages';
@@ -14,7 +15,8 @@ const AppRouter = () => {
       <Route path='/' element={<LandingPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/register' element={<UserRegPage />} />
-      <Route path='/myquotes' element={<MyQuotesPage />} />
+      <Route path='/quotes' element={<QuotesPage />} />
+      <Route path='/quotes/new' element={<QuotesNewPage />} />
       <Route path='/validate' element={<ValidateEmailPage/>}/>
       <Route path='*' element={<Four0Four />} />
     </Routes>

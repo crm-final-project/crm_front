@@ -10,7 +10,7 @@ import {
   TabsBarR,
 } from '../../molecules';
 
-export const MyQuotesOrg = (props) => {
+export const QuotesOrg = (props) => {
   const [activeTab, setActiveTab] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [currentQuote, setCurrentQuote] = useState(DATA.month[0]);

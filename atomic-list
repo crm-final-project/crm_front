@@ -10,6 +10,10 @@ a-TabR
 a-ListItemR
 a-QuoteItemR
 a-BtnClose
+a-TitleBar
+a-DatePickerR
+a-QuoteItem
+a-QuoteTax
 
 m-HeaderBar
 m-LoginForm
@@ -20,11 +24,13 @@ m-FlowOptions
 m-TabsBarR
 m-ListR
 m-QuoteDetailR
+m-NewQuoteForm
 
 o-ValidateEmail
 o-UserLogin
 o-UserRegForm
-o-MyQuotesOrg
+o-QuotesOrg
+o-QuotesNewOrg
 
 
 p-LoginPage
@@ -32,5 +38,6 @@ p-Four0Four
 p-LandingPage
 p-ValidateEmailPage
 p-UserRegPage
-p-MyQuotesPage
+p-QuotesPage
+p-QuotesNewPage
 
