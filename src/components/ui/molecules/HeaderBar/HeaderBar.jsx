@@ -1,132 +1,209 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  AppBar,
+  Box,
+  Drawer,
+  Divider,
+  Toolbar,
+  Button,
+  List,
+  ListItem,
+  ListItemText,
+  ButtonGroup,
+  IconButton,
+  useScrollTrigger,
+  Slide,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import ChevronRightIcon from '@mui/icons-material//ChevronRight';
+import PersonIcon from '@mui/icons-material/Person';
+import { makeStyles } from '@mui/styles';
 import { Brand } from '../../atoms';
 
-const pages = ['Quotations', 'Invoices', 'Expenses'];
-const settings = ['Profile'];
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: 'white',
+    ...theme.mixins.container,
+  },
+  drawerPaper: {
+    width: 240,
+  },
+  logo: {
+    marginRight: theme.spacing(3),
+  },
+  navBtn: {
+    textTransform: 'capitalize',
+    fontWeight: 600,
+    margin: '0 10px',
+  },
+  navRegLink: {
+    textDecoration: 'none',
+    // color: theme.palette.background.paper,
+  },
+  activeNav: {
+    color: theme.palette.primary.main,
+  },
+  OpenDrawerBtn: {
+    marginLeft: 'auto',
+    color: theme.palette.primary.main,
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+  closeDrawerBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    ...theme.mixins.toolbar,
+  },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}));
+
+const HideOnScroll = ({ children, window }) => {
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+};
+
+const pages = [
+  { name: 'Quotations', path: '/myquotes' },
+  { name: 'Invoices', path: '/myinvoices' },
+  { name: 'Expenses', path: '/myexpenses' },
+];
 
 export const HeaderBar = (props) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const classes = useStyles();
+  const [navDrawer, setNavDrawer] = useState(false);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const toggleDrawer = () => {
+    setNavDrawer(!navDrawer);
   };
 
   return (
-    <AppBar position='fixed'>
-      <Container maxWidth='xl'>
-        <Toolbar disableGutters>
-          <Brand />
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size='large'
-              aria-label='account of current user'
-              aria-controls='menu-appbar'
-              aria-haspopup='true'
-              onClick={handleOpenNavMenu}
-              color='inherit'
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id='menu-appbar'
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            {!props.pageTitle ? "PERSONAL CRM": props.pageTitle}
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+    <React.Fragment>
+      <HideOnScroll {...props}>
+        <AppBar color="inherit" elevation={0}>
+          <Toolbar className={classes.toolbar}>
+            <Box>
+              <Link to="/" sx={{ textDecoration: 'none' }}>
+                <Brand />
+              </Link>
+            </Box>
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <ButtonGroup>
+                {pages.map((nav, index) => (
+                  <Link
+                    to={nav.path}
+                    key={nav.name}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <Button
+                      className={classes.navBtn}
+                      sx={{ textDecoration: 'none' }}
+                      variant="text"
+                    >
+                      {nav.name}
+                    </Button>
+                  </Link>
+                ))}
+              </ButtonGroup>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  width: 'fit-content',
+                  backgroundColor: 'gray',
+                  color: 'text.secondary',
+                  '& svg': {
+                    m: 1.5,
+                  },
+                  '& hr': {
+                    mx: 0.5,
+                  },
+                }}
               >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
+                <Divider orientation="vertical" variant="middle" flexItem />
+              </Box>
+              <Link
+                to="/login"
+                style={{ textDecoration: 'none', marginLeft: 'auto', marginRight: '.5rem'}}
+              >
+                <Button
+                  className={classes.navBtn}
+                  variant="text"
+                  startIcon={<PersonIcon />}
+                >
+                  Login
+                </Button>
+              </Link>
+              <Link to="/register" sx={{ textDecoration: 'none' }}>
+                <Button color="primary" variant="contained" disableElevation>
+                  Sign Up
+                </Button>
+              </Link>
+            </Box>
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton onClick={toggleDrawer}>
+                <MenuIcon />
               </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      <Box mt={7} />
+      <Drawer
+        variant="temporary"
+        onClose={toggleDrawer}
+        open={navDrawer}
+        anchor="right"
+      >
+        <Box>
+          <IconButton onClick={toggleDrawer} color="primary">
+            <ChevronRightIcon />
+          </IconButton>
+        </Box>
+        <Divider />
+        <List color="textPrimary">
+          {pages.map((item, i) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              style={{ textDecoration: 'none', color: 'rgba(0,0,0,0.9)' }}
+              onClick={toggleDrawer}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+              <ListItem button key={i}>
+                <ListItemText primary={item.name} />
+              </ListItem>
+            </Link>
+          ))}
+          <Link
+            to="/login"
+            sx={{ textDecoration: 'none', color: 'rgba(0,0,0,0.9)' }}
+            onClick={toggleDrawer}
+          >
+            <ListItem button>
+              <ListItemText primary="Login" />
+            </ListItem>
+          </Link>
+          <Link
+            to="/register"
+            sx={{ textDecoration: 'none', color: 'rgba(0,0,0,0.9)' }}
+            onClick={toggleDrawer}
+          >
+            <ListItem button>
+              <ListItemText primary="Sign Up" />
+            </ListItem>
+          </Link>
+        </List>
+      </Drawer>
+    </React.Fragment>
   );
 };
