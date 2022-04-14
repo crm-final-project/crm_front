@@ -7,3 +7,5 @@ export { QuoteDetailR } from './QuoteDetailR';
 export { ValidateEmailForm } from './ValidateEmailForm';
 export { RegisterForm } from './RegisterForm';
 export { TabsBarR } from './TabsBarR';
+export { FlowOptionsDark } from './FlowOptionsDark';
+export { HeaderBarEdit } from './HeaderBarEdit';
