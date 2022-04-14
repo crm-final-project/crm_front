@@ -3,3 +3,8 @@ export { RecoveryAccount } from './RecoveryAccount';
 export { UserLogin } from './UserLogin';
 export { UserRegForm } from './UserRegForm';
 export { ValidateEmail } from './ValidateEmail';
+export { HeroSection } from './HeroSection';
+export { StepSection } from './StepSection';
+export { QuoteSection } from './QuoteSection';
+export { CtaSection } from './CtaSection';
+export { Footer } from './Footer';
