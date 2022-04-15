@@ -14,6 +14,7 @@ a-TitleBar
 a-DatePickerR
 a-QuoteItem
 a-QuoteTax
+a-Modal
 
 m-HeaderBar
 m-LoginForm
@@ -25,6 +26,10 @@ m-TabsBarR
 m-ListR
 m-QuoteDetailR
 m-NewQuoteForm
+m-NewQuoteItem
+m-DelQuoteItem
+m-NewNoteItem
+m-DelNoteItem
 
 o-ValidateEmail
 o-UserLogin

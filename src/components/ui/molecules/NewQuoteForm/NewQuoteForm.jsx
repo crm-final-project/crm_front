@@ -12,14 +12,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { ArrowForwardIos } from '@mui/icons-material';
 
 const textFields = [
-  { label: 'Razón social (opcional)' },
-  { label: 'NIT (opcional)' },
-  { label: 'Persona de contacto' },
-  { label: 'Teléfono de contacto' },
-  { label: 'Email de contacto' },
-  { label: 'País' },
-  { label: 'Ciudad' },
-  { label: 'Dirección' },
+  { label: 'Commercial name (optional)' },
+  { label: 'NIT (optional)' },
+  { label: 'Contact person' },
+  { label: 'Phone' },
+  { label: 'Email' },
+  { label: 'Country' },
+  { label: 'City' },
+  { label: 'Address' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       padding: '5px',
-      borderRadius: '3px'
+      borderRadius: '3px',
     },
     '&__total': {
       marginTop: '15px',
@@ -76,20 +76,45 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const NewQuoteForm = (props) => {
+  const [itemsList, notesList] = props.data; //voy por aqui, añadiendo las notesList
   const classes = useStyles();
   const [expanded, setExpanded] = useState('panel1');
   const [quoteDate, setQuoteDate] = useState(new Date());
   const [expDate, setExpDate] = useState(new Date());
+  const { setModalItem } = props.states.modal;
+  const { items, setEditItem, setNewItem, setDeleteItem } = props.states.items;
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
-      setExpanded(newExpanded ? panel : false);
-    };
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
+  function handleAddItem () {
+    setNewItem({
+      title: '',
+      description: '',
+      price: '',
+      qty: '',
+    });
+    setModalItem(true)
+  };
+
+  const handleOnItemEdit = (e) => {
+    const index = e.currentTarget.id;
+    setNewItem(items[index]);
+    setEditItem(index);
+    setModalItem(true);
+  };
+
+  const handleOnItemDelete = (e) => {
+    const index = e.currentTarget.id;
+    setDeleteItem(index);
+    setModalItem(true);
+  };
 
   return (
     <Container>
       <Box className={classes.main_box}>
-        {/* Accordion #1 content ==============  */}
+        {/* Accordion #1 quote info ==============  */}
         <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
@@ -101,7 +126,7 @@ export const NewQuoteForm = (props) => {
             className={classes.accordion_summary}
           >
             <ArrowForwardIos className={classes.icon} />
-            General info
+            Quote info
           </AccordionSummary>
           <AccordionDetails className={classes.accordion_details}>
             <Box>
@@ -113,7 +138,7 @@ export const NewQuoteForm = (props) => {
           </AccordionDetails>
         </Accordion>
 
-        {/* Accordion #2 content ==============  */}
+        {/* Accordion #2 client info ==============  */}
         <Accordion
           expanded={expanded === 'panel2'}
           onChange={handleChange('panel2')}
@@ -135,7 +160,7 @@ export const NewQuoteForm = (props) => {
           </AccordionDetails>
         </Accordion>
 
-        {/* Accordion #3 content ==============  */}
+        {/* Accordion #3 items ==============  */}
         <Accordion
           expanded={expanded === 'panel3'}
           onChange={handleChange('panel3')}
@@ -151,16 +176,27 @@ export const NewQuoteForm = (props) => {
           </AccordionSummary>
           <AccordionDetails className={classes.accordion_details}>
             <Box>
-              <QuoteItem className={classes.quote_item} />
-              <QuoteItem className={classes.quote_item} />
-              <QuoteItem className={classes.quote_item} />
-              <QuoteItem className={classes.quote_item} />
-              <BtnLight title='+ Add Item' />
+              {itemsList.map((item, id) => {
+                return (
+                  <QuoteItem
+                    id={id}
+                    className={classes.quote_item}
+                    title={item.title}
+                    description={item.description}
+                    price={item.price}
+                    qty={item.qty}
+                    states={props.states}
+                    onEdit={handleOnItemEdit}
+                    onDelete={handleOnItemDelete}
+                  />
+                );
+              })}
+              <BtnLight title='+ Add Item' onClick={handleAddItem} />
             </Box>
           </AccordionDetails>
         </Accordion>
 
-        {/* Accordion #4 content ==============  */}
+        {/* Accordion #4 notes ==============  */}
         <Accordion
           expanded={expanded === 'panel4'}
           onChange={handleChange('panel4')}

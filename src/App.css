@@ -7,6 +7,9 @@
 .overflow-y-scroll {
   overflow-y: scroll;
 }
+body {
+  height: '100vh';
+}
 /*--- list item styles ---*/
 .list_itemR {
   cursor: pointer;

@@ -7,6 +7,7 @@ export { DatePickerR } from './DatePickerR';
 export { Input } from './Input';
 export { ListItemR } from './ListItemR';
 export { Logo } from './Logo';
+export { Modal } from './Modal';
 export { QuoteItem } from './QuoteItem';
 export { QuoteItemR } from './QuoteItemR';
 export { QuoteTax } from './QuoteTax';
