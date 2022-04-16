@@ -44,14 +44,14 @@ export const QuoteItem = (props) => {
     <div className={`${props.className}`}>
         <div className={classes.text_concept}>
           <div className={classes.title}>
-            {!props.title ? 'missing "title"' : props.title }
+            {!props.title ? '' : props.title }
           </div>  
-          {!props.description ? 'missing "description"' : props.description }
+          {!props.description ? '' : props.description }
           <div className={classes.title}>
-            {!props.price ? 'missing "price"' : `P/U: $${props.price}` }
+            {!props.price ? '' : `P/U: $${props.price}` }
           </div>
           <div className={classes.title}>
-            {!props.price ? 'missing "qty"' : `QTY: ${props.qty} unit.` }
+            {!props.price ? '' : `QTY: ${props.qty} unit.` }
           </div> 
         </div>
         <div className={classes.icons}>

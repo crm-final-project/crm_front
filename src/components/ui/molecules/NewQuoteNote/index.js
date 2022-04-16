@@ -1,0 +1,1 @@
+export { NewQuoteNote } from './NewQuoteNote'

@@ -4,7 +4,9 @@ import {
   FlowOptions,
   NewQuoteForm,
   NewQuoteItem,
+  NewQuoteNote,
   DelQuoteItem,
+  DelQuoteNote,
 } from '../../molecules';
 
 export const QuotesNewOrg = (props) => {
@@ -22,6 +24,24 @@ export const QuotesNewOrg = (props) => {
     description: '',
     price: '',
     qty: '',
+  });
+  const [tax, setTax] = useState({
+    iva: {
+      checked: true,
+      value: "19",
+    },
+    retefuente: {
+      checked: false,
+      value: "",
+    },
+    unexpected: {
+      checked: false,
+      value: "",
+    },
+    other: {
+      checked: false,
+      value: "",
+    },
   });
 
   const states = {
@@ -50,6 +70,10 @@ export const QuotesNewOrg = (props) => {
       setDeleteNote: setDeleteNote,
       newNote: newNote,
       setNewNote: setNewNote,
+    },
+    taxes: {
+      tax: tax,
+      setTax: setTax,
     }
   };
 
@@ -59,6 +83,8 @@ export const QuotesNewOrg = (props) => {
         <Modal isOpened={modalItem || modalNote}>
           {modalItem && !deleteItem && <NewQuoteItem states={states} />}
           {modalItem && deleteItem && <DelQuoteItem states={states} />}
+          {modalNote && !deleteNote && <NewQuoteNote states={states} />}
+          {modalNote && deleteNote && <DelQuoteNote states={states} />}
         </Modal>
       ) : (
         <>

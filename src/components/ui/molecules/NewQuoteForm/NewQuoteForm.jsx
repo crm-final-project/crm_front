@@ -81,22 +81,31 @@ export const NewQuoteForm = (props) => {
   const [expanded, setExpanded] = useState('panel1');
   const [quoteDate, setQuoteDate] = useState(new Date());
   const [expDate, setExpDate] = useState(new Date());
-  const { setModalItem } = props.states.modal;
+  const { setModalItem, setModalNote } = props.states.modal;
   const { items, setEditItem, setNewItem, setDeleteItem } = props.states.items;
+  const { notes, setEditNote, setNewNote, setDeleteNote } = props.states.notes;
+  const { tax, setTax } = props.states.taxes;
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
 
-  function handleAddItem () {
+  function handleAddItem() {
     setNewItem({
       title: '',
       description: '',
       price: '',
       qty: '',
     });
-    setModalItem(true)
-  };
+    setModalItem(true);
+  }
+
+  function handleAddNote() {
+    setNewNote({
+      description: '',
+    });
+    setModalNote(true);
+  }
 
   const handleOnItemEdit = (e) => {
     const index = e.currentTarget.id;
@@ -105,11 +114,58 @@ export const NewQuoteForm = (props) => {
     setModalItem(true);
   };
 
+  const handleOnNoteEdit = (e) => {
+    const index = e.currentTarget.id;
+    setNewNote(notes[index]);
+    setEditNote(index);
+    setModalNote(true);
+  };
+
   const handleOnItemDelete = (e) => {
     const index = e.currentTarget.id;
     setDeleteItem(index);
     setModalItem(true);
   };
+
+  const handleOnNoteDelete = (e) => {
+    const index = e.currentTarget.id;
+    setDeleteNote(index);
+    setModalNote(true);
+  };
+
+  const setIvaValue = (e) => {
+    setTax({ ...tax, iva: { value: e.target.value } });
+  };
+  const setRetefuenteValue = (e) => {
+    setTax({ ...tax, retefuente: { value: e.target.value } });
+  };
+  const setUnexpectedValue = (e) => {
+    setTax({ ...tax, unexpected: { value: e.target.value } });
+  };
+  const setOtherValue = (e) => {
+    setTax({ ...tax, other: { value: e.target.value } });
+  };
+  function handleTaxCheck(e) {
+    setTax({...tax, [e.target.id] : {checked: !tax[e.target.id].checked, value: tax[e.target.id].value}});
+    console.log(tax);
+  }
+  function handleTaxChange(e) {
+    setTax({...tax, [e.target.id] : {checked: tax[e.target.id].checked, value: e.target.value}});
+    console.log(tax);
+  }
+
+  // const setIvaChecked = () => {
+  //   setTax({ ...tax, iva: { checked: true } });
+  // };
+  // const setRetefuenteChecked = () => {
+  //   setTax({ ...tax, retefuente: { checked: true } });
+  // };
+  // const setUnexpectedChecked = () => {
+  //   setTax({ ...tax, unexpected: { checked: true } });
+  // };
+  // const setOtherChecked = () => {
+  //   setTax({ ...tax, other: { checked: true } });
+  // };
 
   return (
     <Container>
@@ -212,11 +268,19 @@ export const NewQuoteForm = (props) => {
           </AccordionSummary>
           <AccordionDetails className={classes.accordion_details}>
             <Box>
-              <QuoteItem title='Nota #01' className={classes.quote_item} />
-              <QuoteItem className={classes.quote_item} />
-              <QuoteItem className={classes.quote_item} />
-              <QuoteItem className={classes.quote_item} />
-              <BtnLight title='+ Add Note' />
+              {notesList.map((item, id) => {
+                return (
+                  <QuoteItem
+                    id={id}
+                    className={classes.quote_item}
+                    description={item.description}
+                    states={props.states}
+                    onEdit={handleOnNoteEdit}
+                    onDelete={handleOnNoteDelete}
+                  />
+                );
+              })}
+              <BtnLight title='+ Add Note' onClick={handleAddNote} />
             </Box>
           </AccordionDetails>
         </Accordion>
@@ -237,10 +301,34 @@ export const NewQuoteForm = (props) => {
           </AccordionSummary>
           <AccordionDetails className={classes.accordion_details}>
             <Box>
-              <QuoteTax title='IVA' value='19' />
-              <QuoteTax title='Retefuente' />
-              <QuoteTax title='Imprevistos' />
-              <QuoteTax title='Otro' />
+              <QuoteTax
+                id='iva'
+                value={tax.iva.value}
+                checked={tax.iva.checked}
+                onChange={handleTaxChange}
+                onChecked={handleTaxCheck}
+              />
+              <QuoteTax
+                id='retefuente'
+                value={tax.retefuente.value}
+                checked={tax.retefuente.checked}
+                onChange={handleTaxChange}
+                onChecked={handleTaxCheck}
+              />
+              <QuoteTax
+                id='unexpected'
+                value={tax.unexpected.value}
+                checked={tax.unexpected.checked}
+                onChange={handleTaxChange}
+                onChecked={handleTaxCheck}
+              />
+              <QuoteTax
+                id='other'
+                value={tax.other.value}
+                checked={tax.other.checked}
+                onChange={handleTaxChange}
+                onChecked={handleTaxCheck}
+              />
             </Box>
           </AccordionDetails>
         </Accordion>

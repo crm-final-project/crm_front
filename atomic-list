@@ -28,8 +28,8 @@ m-QuoteDetailR
 m-NewQuoteForm
 m-NewQuoteItem
 m-DelQuoteItem
-m-NewNoteItem
-m-DelNoteItem
+m-NewQuoteNote
+m-DelQuoteNote
 
 o-ValidateEmail
 o-UserLogin

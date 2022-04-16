@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
 export const NewQuoteItem = ({ states }) => {
   const classes = useStyles();
   const { setModalItem } = states.modal;
-  const { items, setItems, newItem, setNewItem, editItem, setEditItem, setDeleteItem } = states.items;
+  const { items, setItems, newItem, setNewItem, editItem, setEditItem } =
+    states.items;
 
   function handleChange(e) {
     const value = e.target.value;
@@ -37,19 +38,18 @@ export const NewQuoteItem = ({ states }) => {
   }
 
   function handleBtn2Click() {
-    const newArray = [...items]
+    const newArray = [...items];
 
     if (!editItem) {
       setItems((items) => [...items, newItem]);
     } else {
       newArray[editItem] = newItem;
       setItems(newArray);
-      setEditItem(false)
+      setEditItem(false);
     }
     setNewItem({ title: '', description: '', price: '', qty: '' });
     setModalItem(false);
   }
-
 
   return (
     <Container className={classes.container}>
