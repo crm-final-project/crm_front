@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Brand } from '../../atoms';
+import { BrandEdit } from '../../atoms';
 
 const settings = ['Profile'];
 
@@ -29,7 +29,7 @@ export const HeaderBarEdit = (props) => {
     <AppBar position='fixed'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <Brand title='Informacion de Contacto'/>
+          <BrandEdit title='Informacion de Contacto'/>
           <Typography
             variant='h6'
             noWrap

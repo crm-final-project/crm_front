@@ -7,8 +7,8 @@ import './App.css'
 function App() {
   return (
     <>
-      <CssBaseline />
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <AppRouter />
       </ThemeProvider>
     </>

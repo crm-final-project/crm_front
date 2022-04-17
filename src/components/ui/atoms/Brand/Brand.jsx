@@ -1,5 +1,6 @@
 import { makeStyles } from '@mui/styles';
-import { Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import {ReactComponent as Logo} from '../../../../assets/logoCRM.svg';
 
 const useStyles = makeStyles(() => ({
 	root: {
@@ -8,17 +9,14 @@ const useStyles = makeStyles(() => ({
 }))
 
 export const Brand = (props) => {
-	// const classes = useStyles();
+	const classes = useStyles();
   return (
     <>
-      <Typography
-        variant="h6"
-        noWrap
-        component="div"
-        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-      >
-        {!props.title ? 'Personal CRM' : props.title}
-      </Typography>
+    <Box
+      sx={{width: 200, height: 60}}
+    >
+      <Logo />
+    </Box>
     </>
   );
 };
