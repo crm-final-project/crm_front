@@ -17,7 +17,7 @@ export const Brand = (props) => {
         component="div"
         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
       >
-        PERSONAL CRM
+        {!props.title ? 'Personal CRM' : props.title}
       </Typography>
     </>
   );
