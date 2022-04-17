@@ -1,12 +1,11 @@
-import { HeaderBar } from '../../molecules';
-import { FlowOptions, RegisterForm } from '../../molecules';
+import { HeaderBarEdit, FlowOptionsDark, RegisterForm } from '../../molecules';
 
-export const UserRegForm = (props) => {
+export const UserEditForm = (props) => {
   return (
     <>
-      <HeaderBar />
+      <HeaderBarEdit />
       <RegisterForm />
-      <FlowOptions btn1_title='cancel' btn2_title='continue' />
+      <FlowOptionsDark btn1_title='Regresar' btn2_title='Guardar' />
     </>
   );
 };
