@@ -1,0 +1,1 @@
+export { BtnDark } from './BtnDark'

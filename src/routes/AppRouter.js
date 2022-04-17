@@ -8,6 +8,7 @@ import {
   MyQuotesPage,
   UserRegPage,
   ValidateEmailPage,
+  UserEditPage,
 } from '../components/pages';
 import { makeStyles } from '@mui/styles';
 import Loader from '../components/helper/Loader';
@@ -32,18 +33,20 @@ const AppRouter = () => {
   });
   return (
     <>
-      {loading && 
-        <Box sx={{display: 'flex', height: '100vh'}}>
-          <Loader sx={{opacity: 100}}/>
+      {loading && (
+        <Box sx={{ display: 'flex', height: '100vh' }}>
+          <Loader sx={{ opacity: 100 }} />
         </Box>
-      }
+      )}
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<UserRegPage />} />
-        <Route path='/myquotes' element={<MyQuotesPage />} />
-        <Route path='/validate' element={<ValidateEmailPage/>}/>
-        <Route path='*' element={<Four0Four />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<UserRegPage />} />
+        <Route path="/myquotes" element={<MyQuotesPage />} />
+        <Route path="/validate" element={<ValidateEmailPage />} />
+        <Route path="/recovery" element={<RecoveryAccountPage />} />
+        <Route path='/edit' element={<UserEditPage/>}/>
+        <Route path="*" element={<Four0Four />} />
       </Routes>
     </>
   );

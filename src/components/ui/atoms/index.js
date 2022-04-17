@@ -10,3 +10,5 @@ export { QuoteItemR } from './QuoteItemR';
 export { Selector } from './Selector';
 export { TabR } from './TabR';
 export { TotalCash } from './TotalCash';
+export { BtnDark } from './BtnDark';
+export { BrandEdit } from './BrandEdit';
