@@ -10,8 +10,6 @@ a-TabR
 a-ListItemR
 a-QuoteItemR
 a-BtnClose
-a-BrandEdit
-a-BtnDark
 
 m-HeaderBar
 m-LoginForm
@@ -23,15 +21,12 @@ m-TabsBarR
 m-ListR
 m-QuoteDetailR
 m-RecoveryAccountForm
-m-FlowOptionsDark
-m-HeaderBarEdit
 
 o-ValidateEmail
 o-UserLogin
 o-UserRegForm
 o-MyQuotesOrg
 o-RecoveryAccount
-o-UserEditForm
 
 
 p-LoginPage
@@ -41,4 +36,4 @@ p-ValidateEmailPage
 p-UserRegPage
 p-MyQuotesPage
 p-RecoveryAccountPage
-p-UserEditPage
+

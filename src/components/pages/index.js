@@ -4,5 +4,4 @@ export { LoginPage } from './LoginPage';
 export { MyQuotesPage } from './MyQuotesPage';
 export { RecoveryAccountPage } from './RecoveryAccountPage';
 export { UserRegPage } from './UserRegPage';
-export { UserEditPage } from './UserEditPage';
 export { ValidateEmailPage } from './ValidateEmailPage';

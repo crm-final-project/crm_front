@@ -7,6 +7,4 @@ export { QuoteDetailR } from './QuoteDetailR';
 export { RecoveryAccountForm } from './RecoveryAccountForm';
 export { RegisterForm } from './RegisterForm';
 export { TabsBarR } from './TabsBarR';
-export { FlowOptionsDark } from './FlowOptionsDark';
-export { HeaderBarEdit } from './HeaderBarEdit';
 export { ValidateEmailForm } from './ValidateEmailForm';
