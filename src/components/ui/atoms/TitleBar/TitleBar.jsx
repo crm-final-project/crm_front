@@ -19,12 +19,12 @@ const style = {
   },
 };
 
-export const TitleBar = (props) => {
+export const TitleBar = ({title}) => {
   return (
     <Container style={style.container}>
       <Box style={style.box}>
         <ArrowBackIos />
-        <p style={style.title}>Nueva cotización</p>
+        <p style={style.title}>{title}</p>
         <p></p>
       </Box>
     </Container>

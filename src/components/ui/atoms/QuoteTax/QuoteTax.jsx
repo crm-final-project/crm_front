@@ -49,6 +49,7 @@ export const QuoteTax = (props) => {
           max='99'
           value={props.value}
           className={classes.input_text}
+          disabled={!props.checked}
         />
       </div>
     </div>

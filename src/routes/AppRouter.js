@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
   LandingPage,
@@ -10,6 +11,7 @@ import {
 } from '../components/pages';
 
 const AppRouter = () => {
+
   return (
     <Routes>
       <Route path='/' element={<LandingPage />} />

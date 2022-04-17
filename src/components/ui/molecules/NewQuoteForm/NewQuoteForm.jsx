@@ -6,20 +6,22 @@ import {
   AccordionSummary,
   Box,
   Container,
+  MenuItem,
+  Select,
   TextField,
 } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import { ArrowForwardIos } from '@mui/icons-material';
 
 const textFields = [
-  { label: 'Commercial name (optional)' },
-  { label: 'NIT (optional)' },
-  { label: 'Contact person' },
-  { label: 'Phone' },
-  { label: 'Email' },
-  { label: 'Country' },
-  { label: 'City' },
-  { label: 'Address' },
+  { id: 'commercialName', label: 'Commercial name (optional)' },
+  { id: 'nit', label: 'NIT (optional)' },
+  { id: 'contactPerson', label: 'Contact person' },
+  { id: 'phone', label: 'Phone' },
+  { id: 'email', label: 'Email' },
+  { id: 'country', label: 'Country' },
+  { id: 'city', label: 'City' },
+  { id: 'address', label: 'Address' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -76,15 +78,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const NewQuoteForm = (props) => {
-  const [itemsList, notesList] = props.data; //voy por aqui, añadiendo las notesList
   const classes = useStyles();
-  const [expanded, setExpanded] = useState('panel1');
-  const [quoteDate, setQuoteDate] = useState(new Date());
-  const [expDate, setExpDate] = useState(new Date());
+  const [itemsList, notesList] = props.data;
+  const { quoteDate, expDate, setQuoteDate, setExpDate } = props.states.dates
+  const { expanded, setExpanded } = props.states.accordion;
   const { setModalItem, setModalNote } = props.states.modal;
+  const { total } = props.states.quote;
   const { items, setEditItem, setNewItem, setDeleteItem } = props.states.items;
   const { notes, setEditNote, setNewNote, setDeleteNote } = props.states.notes;
   const { tax, setTax } = props.states.taxes;
+  const { clientInfo, setClientInfo } = props.states.client;
+  const { quoteInfo, setQuoteInfo } = props.states.quoteInfo;
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -133,39 +137,34 @@ export const NewQuoteForm = (props) => {
     setModalNote(true);
   };
 
-  const setIvaValue = (e) => {
-    setTax({ ...tax, iva: { value: e.target.value } });
-  };
-  const setRetefuenteValue = (e) => {
-    setTax({ ...tax, retefuente: { value: e.target.value } });
-  };
-  const setUnexpectedValue = (e) => {
-    setTax({ ...tax, unexpected: { value: e.target.value } });
-  };
-  const setOtherValue = (e) => {
-    setTax({ ...tax, other: { value: e.target.value } });
-  };
   function handleTaxCheck(e) {
-    setTax({...tax, [e.target.id] : {checked: !tax[e.target.id].checked, value: tax[e.target.id].value}});
-    console.log(tax);
-  }
-  function handleTaxChange(e) {
-    setTax({...tax, [e.target.id] : {checked: tax[e.target.id].checked, value: e.target.value}});
-    console.log(tax);
+    setTax({
+      ...tax,
+      [e.target.id]: { checked: !tax[e.target.id].checked, value: '' },
+    });
   }
 
-  // const setIvaChecked = () => {
-  //   setTax({ ...tax, iva: { checked: true } });
-  // };
-  // const setRetefuenteChecked = () => {
-  //   setTax({ ...tax, retefuente: { checked: true } });
-  // };
-  // const setUnexpectedChecked = () => {
-  //   setTax({ ...tax, unexpected: { checked: true } });
-  // };
-  // const setOtherChecked = () => {
-  //   setTax({ ...tax, other: { checked: true } });
-  // };
+  function handleTaxChange(e) {
+    setTax({
+      ...tax,
+      [e.target.id]: {
+        checked: tax[e.target.id].checked,
+        value: e.target.value,
+      },
+    });
+  }
+
+  function handleClientInfo(e) {
+    setClientInfo({ ...clientInfo, [e.target.id]: e.target.value });
+  }
+
+  function handleQuoteInfo(e) {
+    if (e.target.id) {
+      setQuoteInfo({ ...quoteInfo, [e.target.id]: e.target.value });
+    } else {
+      setQuoteInfo({ ...quoteInfo, [e.target.name]: e.target.value });
+    }
+  }
 
   return (
     <Container>
@@ -186,10 +185,26 @@ export const NewQuoteForm = (props) => {
           </AccordionSummary>
           <AccordionDetails className={classes.accordion_details}>
             <Box>
-              <TextField label='Quote ID' className={classes.field} />
-              <TextField label='Currency' className={classes.field} />
-              <DatePickerR onChange={setQuoteDate} value={quoteDate} />
-              <DatePickerR onChange={setExpDate} value={expDate} />
+              <TextField
+                id='quoteId'
+                onChange={handleQuoteInfo}
+                label='Quote ID'
+                className={classes.field}
+              />
+              <Select
+                name='quoteCurrency'
+                defaultValue={'cop'}
+                value={quoteInfo.quoteCurrency}
+                onChange={handleQuoteInfo}
+                className={classes.field}
+              >
+                <MenuItem value={'cop'}>$COP</MenuItem>
+                <MenuItem value={'usd'}>$USD</MenuItem>
+              </Select>
+              <p>document date</p>
+              <DatePickerR id="quoteDocDate" onChange={setQuoteDate} value={quoteDate} />
+              <p>expiration date</p>
+              <DatePickerR id="quoteExpDate" onChange={setExpDate} value={expDate} />
             </Box>
           </AccordionDetails>
         </Accordion>
@@ -210,7 +225,12 @@ export const NewQuoteForm = (props) => {
           <AccordionDetails className={classes.accordion_details}>
             <Box>
               {textFields.map((element, index) => (
-                <TextField label={element.label} className={classes.field} />
+                <TextField
+                  id={element.id}
+                  label={element.label}
+                  className={classes.field}
+                  onChange={handleClientInfo}
+                />
               ))}
             </Box>
           </AccordionDetails>
@@ -337,7 +357,7 @@ export const NewQuoteForm = (props) => {
           <Box className={`${classes.summary_box}__title`}>Quotation Total</Box>
           <Box className={`${classes.summary_box}__total`}>
             <span>Total COP$</span>
-            <span>3.256.000</span>
+            <span>{total}</span>
           </Box>
         </Box>
       </Box>

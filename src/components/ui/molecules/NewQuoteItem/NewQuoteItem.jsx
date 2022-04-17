@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export const NewQuoteItem = ({ states }) => {
   const classes = useStyles();
   const { setModalItem } = states.modal;
+  const { setTotal } = states.quote;
   const { items, setItems, newItem, setNewItem, editItem, setEditItem } =
     states.items;
 
@@ -37,6 +38,16 @@ export const NewQuoteItem = ({ states }) => {
     setModalItem(false);
   }
 
+  function calcTotal () {
+    let newTotal = 0;
+    if (items.length > 0) {
+      for (const element of items) {
+        newTotal += (Number(element.price));
+        setTotal(newTotal);
+      }
+    }
+  }
+
   function handleBtn2Click() {
     const newArray = [...items];
 
@@ -47,6 +58,7 @@ export const NewQuoteItem = ({ states }) => {
       setItems(newArray);
       setEditItem(false);
     }
+    // calcTotal();
     setNewItem({ title: '', description: '', price: '', qty: '' });
     setModalItem(false);
   }

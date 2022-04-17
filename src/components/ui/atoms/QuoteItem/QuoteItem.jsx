@@ -48,7 +48,7 @@ export const QuoteItem = (props) => {
           </div>  
           {!props.description ? '' : props.description }
           <div className={classes.title}>
-            {!props.price ? '' : `P/U: $${props.price}` }
+            {!props.price ? '' : `P/U: $${Number(props.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}` }
           </div>
           <div className={classes.title}>
             {!props.price ? '' : `QTY: ${props.qty} unit.` }
