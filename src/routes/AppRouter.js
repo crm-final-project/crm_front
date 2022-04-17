@@ -9,6 +9,7 @@ import {
   UserRegPage,
   ValidateEmailPage,
   UserEditPage,
+  RecoveryAccountPage,
 } from '../components/pages';
 import { makeStyles } from '@mui/styles';
 import Loader from '../components/helper/Loader';
