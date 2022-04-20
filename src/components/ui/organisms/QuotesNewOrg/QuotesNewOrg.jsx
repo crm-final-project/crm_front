@@ -125,10 +125,9 @@ export const QuotesNewOrg = (props) => {
     return {
       id: quoteInfo.quoteId,
       currency: quoteInfo.quoteCurrency,
-      docDate: "4/16/2022",
-      // docDate: quoteInfo.quoteDocDate,
-      expDate: "4/20/2022",
-      // expDate: quoteInfo.quoteExpDate,
+      docDate: quoteInfo.quoteDocDate,
+      expDate: quoteInfo.quoteExpDate,
+      total: total,
       client: {
         commercialName: clientInfo.commercialName,
         nit: clientInfo.nit,
