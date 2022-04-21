@@ -8,6 +8,7 @@ export const BrandEdit = (props) => {
         variant="h6"
         noWrap
         component="div"
+        align="center"
         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
       >
         {!props.title ? 'Personal CRM' : props.title}
