@@ -1,38 +1,93 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { BrandEdit } from '../../atoms';
-import Button from '@mui/material/Button'
-import PersonIcon from '@mui/icons-material/Person';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Button,
+  useScrollTrigger,
+  Slide,
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Brand } from '../../atoms';
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: 'white',
+    ...theme.mixins.container,
+  },
+  drawerPaper: {
+    width: 240,
+  },
+  logo: {
+    marginRight: theme.spacing(3),
+  },
+  navBtn: {
+    textTransform: 'capitalize',
+    fontWeight: 600,
+    margin: '0 10px',
+  },
+  navRegLink: {
+    textDecoration: 'none',
+    // color: theme.palette.background.paper,
+  },
+  activeNav: {
+    color: theme.palette.primary.main,
+  },
+  OpenDrawerBtn: {
+    marginLeft: 'auto',
+    color: theme.palette.primary.main,
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+  closeDrawerBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    ...theme.mixins.toolbar,
+  },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}));
+
+const HideOnScroll = ({ children, window }) => {
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+};
+
 
 export const HeaderBarEdit = (props) => {
+  const classes = useStyles();
+
+
 
 
   return (
-    <AppBar position='fixed'>
-      <Container maxWidth='xl'>
-        <Toolbar disableGutters>
-          <PersonIcon />
-          <BrandEdit title='Informacion de Contacto'/>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            align='center'
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            {!props.pageTitle ? "Informacion de Contacto": props.pageTitle}
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          </Box>
-          <Button variant="contained" color="success">
-            Logout
-          </Button>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <React.Fragment>
+      <HideOnScroll {...props}>
+        <AppBar color="inherit" elevation={0}>
+          <Toolbar className={classes.toolbar}>
+            <Box>
+              <Link to="/" sx={{ textDecoration: 'none' }}>
+                <Brand />
+              </Link>
+            </Box>
+            <Button variant="contained" color="success">
+              Logout
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      <Box mt={7} />
+      
+    </React.Fragment>
   );
 };
