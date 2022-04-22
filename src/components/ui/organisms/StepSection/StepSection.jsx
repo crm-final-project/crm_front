@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   adMediaOverlay: {
     position: 'absolute',
-    background: '#651fffab',
+    background: '#651fff',
     left: 0,
     top: 0,
     bottom: 0,
@@ -83,7 +83,6 @@ export const StepSection = () => {
   return (
     <>
       <section>
-
         <Container style={{ padding: 30 }}>
           <Box mb={3}>
             <Typography variant="h4" align="center">
