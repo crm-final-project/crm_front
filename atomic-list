@@ -25,6 +25,7 @@ m-QuoteDetailR
 m-RecoveryAccountForm
 m-FlowOptionsDark
 m-HeaderBarEdit
+m-EditForm
 
 o-ValidateEmail
 o-UserLogin
