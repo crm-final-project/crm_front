@@ -38,6 +38,7 @@ export const EditForm = (props) => {
           })}
         </Box>
       </Box>
+      
     </Container>
   );
 };
