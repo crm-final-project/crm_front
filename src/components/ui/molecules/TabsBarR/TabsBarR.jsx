@@ -3,8 +3,8 @@ import { TabR } from '../../atoms';
 import { Container, Box } from '@mui/material';
 
 export const TabsBarR = (props) => {
-  const {activeTab, setActiveTab} = props.states.tabs;
-  const {setCurrentQuote} = props.states.quote;
+  const {setActiveTab, setCurrentQuote, activeTab, showModal} = props;
+  // const {activeTab} = props.states.tabs; 
 
   useEffect(() => {
     setCurrentQuote(props.data[0])

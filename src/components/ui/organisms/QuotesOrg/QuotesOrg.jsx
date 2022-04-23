@@ -13,37 +13,31 @@ import {
   QuoteDetailR,
   TabsBarR,
 } from '../../molecules';
-import { WebAssetOffSharp } from '@mui/icons-material';
 
 export const QuotesOrg = (props) => {
   const [data, setData] = useState({ month: [], older: [] });
   const [activeTab, setActiveTab] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [currentQuote, setCurrentQuote] = useState(data.month[0]);
+  const [currentQuote, setCurrentQuote] = useState([]);
   const [cashVal, setCashVal] = useState('9.999.990');
-  const image = require('https://winaero.com/blog/wp-content/uploads/2019/11/Photos-new-icon.png');
-
-  const states = {
+  const [newState, setNewState] = useState({
     tabs: {
-      activeTab: activeTab,
-      setActiveTab: setActiveTab,
+      activeTab: false,
     },
     showModal: {
-      status: showModal,
-      setter: setShowModal,
+      status: false,
     },
     quote: {
-      currentQuote: currentQuote,
-      setCurrentQuote: setCurrentQuote,
+      currentQuote: [],
     },
     quotes: {
-      data: data,
-      setData: setData,
-    },
-  };
+      data: { month: [], older: [] }
+    }
+  })
+
 
   async function apiGetQuotes() {
-    const response = await fetch('http://localhost:3001/quotations');
+    const response = await fetch('http://localhost:8000/quotes/');
     const quotesObj = await response.json();
     return quotesObj;
   }
@@ -54,18 +48,18 @@ export const QuotesOrg = (props) => {
     let olderArray = data.older.map((obj) => obj);
 
     for (let quote of quotesObj) {
-      const docDate = new Date(quote.docDate).getMonth();
+      const docDate = new Date(quote.docDate).getMonth() + 1;
       if (docDate === thisMonth) {
         monthArray.push(quote);
       } else {
         olderArray.push(quote);
       }
     }
-
-    setData({ month: monthArray, older: olderArray });
-    setCurrentQuote(monthArray[0]);
-    console.log(olderArray[0]);
-    generatePDF();
+    setCurrentQuote(quotesObj)
+    console.log(quotesObj)
+    setNewState({quotes: {data: { month: monthArray, older: olderArray } }, 
+      quote: {currentQuote: quotesObj}});
+    // generatePDF();
   }
 
   function retrieveData() {
@@ -123,12 +117,12 @@ export const QuotesOrg = (props) => {
     );
   }
 
-  function generatePDF() {
-    var html = htmlToPdfmake(htmlTest());
-    var dd = { content: html };
-    pdfMake.vfs = pdfFonts.pdfMake.vfs;
-    pdfMake.createPdf(dd).download();
-  }
+  // function generatePDF() {
+  //   var html = htmlToPdfmake(htmlTest());
+  //   var dd = { content: html };
+  //   pdfMake.vfs = pdfFonts.pdfMake.vfs;
+  //   pdfMake.createPdf(dd).download();
+  // }
 
   useEffect(() => {
     retrieveData();
@@ -147,20 +141,37 @@ export const QuotesOrg = (props) => {
           <TotalCash val={cashVal} className='quote-detail-r-box__total-list' />
         </Container>
         <TabsBarR
-          states={states}
+          setActiveTab={setActiveTab}
+          setCurrentQuote={setCurrentQuote}
+          activeTab={activeTab}
+          showModal={showModal}
+          states={newState}
           data={activeTab ? data.month : data.older}
           val1={data.month.length}
           val2={data.older.length}
         />
         <ListR
-          states={states}
+          setActiveTab={setActiveTab}
+          setCurrentQuote={setCurrentQuote}
+          activeTab={activeTab}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          states={newState}
           data={activeTab ? data.month : data.older}
           view={props.view}
         />
       </Box>
 
       <Box className='my-quotes-org__detail'>
-        <QuoteDetailR states={states} view={props.view} />
+        {currentQuote && 
+         <QuoteDetailR setActiveTab={setActiveTab}
+         setCurrentQuote={setCurrentQuote}
+         activeTab={activeTab}
+         showModal={showModal}
+         currentQuote={currentQuote}
+         setShowModal={setShowModal} states={newState} view={props.view} />
+         }
+       
       </Box>
     </Box>
   );
