@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 import { Box, Typography, Container } from '@mui/material';
 import './Editform.css';
 
+
 const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: 'red',
@@ -26,9 +27,6 @@ export const EditForm = (props) => {
   return (
     <Container component='main' maxWidth='xs'>
       <Box className='register-form-box'>
-        <Typography variant='h5' sx={{ textAlign: 'center' }} >
-          Contact Info
-        </Typography>
         <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           {FORMDATA.map((data, index) => {
             return <Input {...data} key={index} />;
@@ -38,7 +36,6 @@ export const EditForm = (props) => {
           })}
         </Box>
       </Box>
-      
     </Container>
   );
 };
