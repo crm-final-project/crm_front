@@ -1,5 +1,5 @@
 import { Box, Container, TextField } from '@mui/material';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import { FlowOptions } from '..';
 
 const useStyles = makeStyles((theme) => ({

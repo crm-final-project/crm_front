@@ -1,3 +1,5 @@
-export const Four0Four = (props) => {
-	return <div className={`${props.className}`}>-Four0Four component-</div>
+import {Error} from '../../ui/organisms/Error404/Error';
+
+export const Four0Four = () => {
+	return <><Error /></>
 };

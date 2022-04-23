@@ -3,5 +3,7 @@ export { LandingPage } from './LandingPage';
 export { LoginPage } from './LoginPage';
 export { QuotesNewPage } from './QuotesNewPage';
 export { QuotesPage } from './QuotesPage';
+export { RecoveryAccountPage } from './RecoveryAccountPage';
 export { UserRegPage } from './UserRegPage';
+export { UserEditPage } from './UserEditPage';
 export { ValidateEmailPage } from './ValidateEmailPage';
