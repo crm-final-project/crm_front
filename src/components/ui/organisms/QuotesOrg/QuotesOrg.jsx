@@ -75,11 +75,51 @@ export const QuotesOrg = (props) => {
 
   function htmlTest() {
     return ReactDOMServer.renderToStaticMarkup(
-      <div>
-        <h1 className='test'>TITULO de prueba</h1>
-        <img src={image} alt='image_icon'/>
-        <p>parrafo de prueba</p>
-      </div>
+      <div >
+        <div style={{padding: '20px'}}>
+            <section style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <p style={{fontWeight: 700}}>Razon social empresa</p>
+                <span style={{fontSize: '13px'}}>02/16/2022</span>
+            </section>
+
+            <section style={{marginTop: '20px', marginBottom: '40px', border: '1px solid lightgray', borderRadius: '3px', padding: '10px', width: '180px', boxShadow: '0 0 3px lightgray'}}>
+                <p style={{fontWeight: 100}}>Total cotización</p>
+                <span style={{color: 'green', fontWeight: 700}}>COP$ 13.560.000</span>
+            </section>
+
+            <div style={{fontWeight: 800, marginTop: '40px', marginBottom: '50px'}}>QUOTATION ITEMS</div>
+
+            <section style={{borderBottom: '1px solid lightgray', marginBottom: '20px'}}>
+                <p>Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum impsum Lorem impsum Lorem impsum Lorem impsumimpsum Lorem impsum Lorem impsum Lorem impsumimpsum Lorem impsum Lorem impsum Lorem impsum</p>
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                    <p style={{fontWeight: 100, marginRight: '30px'}}>P.U. COP$ 430.000</p>
+                    <span style={{color: 'green', fontWeight: 700}}>QTY: 4 und.</span>
+                </div>
+            </section>
+
+            <section style={{borderBottom: '1px solid lightgray', marginBottom: '20px'}}>
+                <p>Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum Lorem impsum impsum Lorem impsum Lorem impsum Lorem impsumimpsum Lorem impsum Lorem impsum Lorem impsumimpsum Lorem impsum Lorem impsum Lorem impsum</p>
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                    <p style={{fontWeight: 100, marginRight: '30px'}}>P.U. COP$ 430.000</p>
+                    <span style={{color: 'green', fontWeight: 700}}>QTY: 4 und.</span>
+                </div>
+            </section>
+
+            <div style={{fontWeight: 800, marginTop: '40px', marginBottom: '50px'}}>QUOTATION NOTES</div>
+
+            <section style={{borderBottom: '1px solid lightgray', marginBottom: '20px'}}>
+                <p>Quotation note # 01</p>
+            </section>
+
+            <section style={{borderBottom: '1px solid lightgray', marginBottom: '20px'}}>
+                <p>Quotation note # 01</p>
+            </section>
+
+            <section style={{borderBottom: '1px solid lightgray', marginBottom: '20px'}}>
+                <p>Quotation note # 01</p>
+            </section>
+        </div>
+    </div>
     );
   }
 
