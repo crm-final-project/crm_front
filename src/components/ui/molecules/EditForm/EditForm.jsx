@@ -1,16 +1,9 @@
 import * as React from 'react';
 import { FORMDATA, SELECTORS } from './formdata';
 import { Input, Selector } from '../../atoms';
-import { makeStyles } from '@mui/styles';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import './Editform.css';
 
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    backgroundColor: 'red',
-  },
-}));
 
 export const EditForm = (props) => {
   const handleSubmit = (event) => {
@@ -22,7 +15,6 @@ export const EditForm = (props) => {
       password: data.get('password'),
     });
   };
-  const classes = useStyles();
 
   return (
     <Container component='main' maxWidth='xs'>

@@ -6,7 +6,7 @@ import {
   Toolbar,
   Button,
   useScrollTrigger,
-  Slide,
+  Slide, useMediaQuery,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Brand } from '../../atoms';
@@ -66,8 +66,8 @@ const HideOnScroll = ({ children, window }) => {
 
 export const HeaderBarEdit = (props) => {
   const classes = useStyles();
-
-
+const sizeButtonMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
+const sizeButtonTablet = useMediaQuery(theme => theme.breakpoints.down('md'));
 
 
   return (
@@ -75,14 +75,10 @@ export const HeaderBarEdit = (props) => {
       <HideOnScroll {...props}>
         <AppBar color="inherit" elevation={0}>
           <Toolbar className={classes.toolbar}>
-            <Box>
-              <Link to="/" sx={{ textDecoration: 'none' }}>
-                <Brand />
-              </Link>
-            </Box>
-            <Button variant="contained" color="success">
-              Logout
-            </Button>
+                <Link to="/" sx={{ textDecoration: 'none' }}>
+                  <Brand />
+                </Link>
+                <Button variant="contained" color="success" size={sizeButtonMobile ? "small" : sizeButtonTablet ? "medium" : "large"}>Logout</Button>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
