@@ -3,7 +3,7 @@ import { Select as MuiSelect, InputLabel, MenuItem } from '@mui/material';
 export const Selector = (props) => {
   return (
     <>
-      <InputLabel id='test' sx={{ marginTop: '15px' }}>
+      <InputLabel sx={{ marginTop: '15px' }}>
         {props.label}
       </InputLabel>
       <MuiSelect sx={{ width: 1 }}>

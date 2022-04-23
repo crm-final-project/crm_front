@@ -12,8 +12,9 @@ const STYLES = {
 };
 
 export const ListR = (props) => {
-  const setCurrentQuote = props.states.currentQuote.setter;
-  const setShowModal = props.states.showModal.setter;
+  // const { data } = props.states.quotes;
+  const data = props.data
+  const {setShowModal, setCurrentQuote} = props;
   const isMobile = props.view === 'mobile' && 'mobile';
   const clickItem = (index) => {
     setCurrentQuote(props.data[index]);
@@ -23,7 +24,8 @@ export const ListR = (props) => {
   return (
     <Container component='main' maxWidth='xs'>
       <Box sx={STYLES.BOX} >
-        {props.data.map((item, index) => {
+        <div>{toString(data)}</div>
+        {data.map((item, index) => {
           return <ListItemR {...item} key={index} states={props.states} onClick={() => clickItem(index)} />;
         })}
       </Box>

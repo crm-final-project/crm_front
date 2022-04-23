@@ -1,0 +1,1 @@
+export { DelQuoteItem } from './DelQuoteItem'

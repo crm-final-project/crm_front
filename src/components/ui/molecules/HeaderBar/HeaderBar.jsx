@@ -18,19 +18,20 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material//ChevronRight';
 import PersonIcon from '@mui/icons-material/Person';
+import { useTheme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import { Brand } from '../../atoms';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: 'white',
-    ...theme.mixins.container,
+    ...useTheme().mixins.container,
   },
   drawerPaper: {
     width: 240,
   },
   logo: {
-    marginRight: theme.spacing(3),
+    marginRight: useTheme().spacing(3),
   },
   navBtn: {
     textTransform: 'capitalize',
@@ -39,22 +40,21 @@ const useStyles = makeStyles((theme) => ({
   },
   navRegLink: {
     textDecoration: 'none',
-    // color: theme.palette.background.paper,
   },
   activeNav: {
-    color: theme.palette.primary.main,
+    color: useTheme().palette.primary.main,
   },
   OpenDrawerBtn: {
     marginLeft: 'auto',
-    color: theme.palette.primary.main,
-    [theme.breakpoints.up('md')]: {
+    color: useTheme().palette.primary.main,
+    [useTheme().breakpoints.up('md')]: {
       display: 'none',
     },
   },
   closeDrawerBtn: {
     display: 'flex',
     alignItems: 'center',
-    ...theme.mixins.toolbar,
+    ...useTheme().mixins.toolbar,
   },
   toolbar: {
     display: 'flex',
@@ -120,14 +120,14 @@ export const HeaderBar = (props) => {
                   display: 'flex',
                   alignItems: 'center',
                   width: 'fit-content',
-                  backgroundColor: 'gray',
-                  color: 'text.secondary',
-                  '& svg': {
-                    m: 1.5,
-                  },
-                  '& hr': {
-                    mx: 0.5,
-                  },
+                  // backgroundColor: 'gray',
+                  // color: 'text.secondary',
+                  // '& svg': {
+                  //   m: 1.5,
+                  // },
+                  // '& hr': {
+                  //   mx: 0.5,
+                  // },
                 }}
               >
                 <Divider orientation="vertical" variant="middle" flexItem />

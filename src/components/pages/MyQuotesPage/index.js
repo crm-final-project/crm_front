@@ -1,1 +1,0 @@
-export { MyQuotesPage } from './MyQuotesPage'

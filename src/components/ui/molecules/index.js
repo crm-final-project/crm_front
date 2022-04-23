@@ -1,8 +1,14 @@
+export { DelNoteItem } from './DelNoteItem';
+export { DelQuoteItem } from './DelQuoteItem';
+export { DelQuoteNote } from './DelQuoteNote';
 export { FlowOptions } from './FlowOptions';
 export { HeaderBar } from './HeaderBar';
 export { ListR } from './ListR';
 export { LoginForm } from './LoginForm';
 export { LoginOptions } from './LoginOptions';
+export { NewQuoteForm } from './NewQuoteForm';
+export { NewQuoteItem } from './NewQuoteItem';
+export { NewQuoteNote } from './NewQuoteNote';
 export { QuoteDetailR } from './QuoteDetailR';
 export { RecoveryAccountForm } from './RecoveryAccountForm';
 export { RegisterForm } from './RegisterForm';
