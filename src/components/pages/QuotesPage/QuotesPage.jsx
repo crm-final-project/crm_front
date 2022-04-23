@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { MyQuotesOrg } from '../../ui/organisms';
+import { QuotesOrg } from '../../ui/organisms';
 
-export const MyQuotesPage = (props) => {
+export const QuotesPage = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
 
   function handleWindowSizeChange() {
@@ -15,5 +15,5 @@ export const MyQuotesPage = (props) => {
 
   const view = width >= 1180 ? 'desktop' : 'mobile';
 
-  return <MyQuotesOrg view={view} />;
+  return <QuotesOrg view={view} />;
 };

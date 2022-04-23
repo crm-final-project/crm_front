@@ -5,17 +5,18 @@ import {
   Box,
   Button,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   outro: {
     display: 'flex',
     justifyContent: 'center',
-    background: theme.palette.primary.main,
-    padding: theme.spacing(8, 0),
+    background: useTheme().palette.primary.main,
+    padding: useTheme().spacing(8, 0),
     color: 'white',
     textAlign: 'center',
-    marginTop: theme.spacing(2),
+    marginTop: useTheme().spacing(2),
   },
 }));
 
