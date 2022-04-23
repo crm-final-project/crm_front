@@ -8,7 +8,7 @@ const getAllQuotes = () => {
   return httpRequest.get('/quotes');
 };
 
-const putQuote = (quote) => {
+const putQuote = (id, quote) => {
   return httpRequest.put(`/quotes/${id}`, quote);
 };
 

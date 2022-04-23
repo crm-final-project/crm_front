@@ -14,12 +14,13 @@ import {
   TabsBarR,
 } from '../../molecules';
 import { WebAssetOffSharp } from '@mui/icons-material';
+import { useQuoteStore } from '../../../../store';
 
 export const QuotesOrg = (props) => {
-  const [data, setData] = useState({ month: [], older: [] });
+  const { data, currentQuote } = useQuoteStore(state => ({ data: state.data, currentQuote: state.currentQuote }), shallow)
+  
   const [activeTab, setActiveTab] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [currentQuote, setCurrentQuote] = useState(data.month[0]);
   const [cashVal, setCashVal] = useState('9.999.990');
   const image = require('https://winaero.com/blog/wp-content/uploads/2019/11/Photos-new-icon.png');
 

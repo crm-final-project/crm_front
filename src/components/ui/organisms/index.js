@@ -1,5 +1,9 @@
 export { QuotesNewOrg } from './QuotesNewOrg';
 export { QuotesOrg } from './QuotesOrg';
+export { RecoveryAccount } from './RecoveryAccount';
 export { UserLogin } from './UserLogin';
 export { UserRegForm } from './UserRegForm';
+export { UserEditForm } from './UserEditForm';
 export { ValidateEmail } from './ValidateEmail';
+export { HeroSection } from './HeroSection';
+export { StepSection } from './StepSection';

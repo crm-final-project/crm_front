@@ -19,6 +19,7 @@ import { Input } from '../../atoms';
 import { BtnLogin } from '../../atoms';
 
 import { makeStyles } from '@mui/styles';
+import { login } from '../../../../api/login';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -29,13 +30,10 @@ const useStyles = makeStyles((theme) => ({
 
 export const LoginForm
  = (props) => {
-	 const handleSubmit = (event) => {
+	 const handleLogin = (event) => {
 		 event.preventDefault();
 		 const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+     login(data);
   };
 	const classes = useStyles();
 
