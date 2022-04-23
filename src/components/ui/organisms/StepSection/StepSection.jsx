@@ -6,17 +6,18 @@ import SendIcon from '@mui/icons-material/Send';
 import laptop1 from '../../../../assets/img/laptop-1.jfif';
 import laptop2 from '../../../../assets/img/laptop-2.jpg';
 import laptop3 from '../../../../assets/img/laptop-3.jpg';
+import { useTheme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     height: '100%',
-    paddingLeft: theme.spacing(4),
+    paddingLeft: useTheme().spacing(4),
   },
   step: {
-    border: `5px solid ${theme.palette.primary.main}`,
+    border: `5px solid ${useTheme().palette.primary.main}`,
     borderRadius: '50%',
-    padding: theme.spacing(2),
+    padding: useTheme().spacing(2),
     height: 75,
     width: 75,
     display: 'flex',
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     borderRadius: 0,
     height: 250,
-    margin: theme.spacing(2, 0),
+    margin: useTheme().spacing(2, 0),
   },
   adMediaOverlay: {
     position: 'absolute',
@@ -60,11 +61,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   outro: {
-    background: theme.palette.primary.main,
-    padding: theme.spacing(8, 0),
+    background: useTheme().palette.primary.main,
+    padding: useTheme().spacing(8, 0),
     color: 'white',
     textAlign: 'center',
-    marginTop: theme.spacing(2),
+    marginTop: useTheme().spacing(2),
   },
 }));
 

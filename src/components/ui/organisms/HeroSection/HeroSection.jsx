@@ -6,26 +6,27 @@ import {
   Button,
   Box,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles'; 
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   intro: {
     backgroundImage: 'linear-gradient(135deg, #0D3411 40%, #2d8254 60%)',
-    padding: theme.spacing(8, 0),
+    padding: useTheme().spacing(8, 0),
     color: 'white',
   },
   introSubtitle: {
-    marginBottom: theme.spacing(3),
+    marginBottom: useTheme().spacing(3),
   },
   ctaBtn: {
     background: 'white',
-    color: theme.palette.primary.main,
+    color: useTheme().palette.primary.main,
     
   },
   container: {
     height: '100%',
-    paddingLeft: theme.spacing(4),
-    [theme.breakpoints.up('md')]: {
+    paddingLeft: useTheme().spacing(4),
+    [useTheme().breakpoints.up('md')]: {
       fontSize: '44px',
     },
   },

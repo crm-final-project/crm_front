@@ -5,7 +5,8 @@ import {
   LandingPage,
   LoginPage,
   Four0Four,
-  MyQuotesPage,
+  QuotesPage,
+  QuotesNewPage,
   UserRegPage,
   ValidateEmailPage,
   UserEditPage,
@@ -14,18 +15,19 @@ import {
 import { makeStyles } from '@mui/styles';
 import Loader from '../components/helper/Loader';
 
-const useStyles = makeStyles((theme) => ({
-  loader : {
-    opacity: 0
-  },
-  loaderActive: {
-    opacity: 100
-  }
-}));
+// const useStyles = makeStyles((theme) => ({
+//   loader : {
+//     opacity: 0
+//   },
+//   loaderActive: {
+//     opacity: 100
+//   }
+// }));
 
 const AppRouter = () => {
+
   const [loading, setLoading] = useState(true);
-  const classes = useStyles();
+  // const classes = useStyles();
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,7 +45,8 @@ const AppRouter = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<UserRegPage />} />
-        <Route path="/myquotes" element={<MyQuotesPage />} />
+        <Route path="/quotes" element={<QuotesPage />} />
+        <Route path='/quotes/new' element={<QuotesNewPage />} />
         <Route path="/validate" element={<ValidateEmailPage />} />
         <Route path="/recovery" element={<RecoveryAccountPage />} />
         <Route path='/edit' element={<UserEditPage/>}/>

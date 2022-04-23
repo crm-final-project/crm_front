@@ -10,6 +10,12 @@ a-TabR
 a-ListItemR
 a-QuoteItemR
 a-BtnClose
+a-TitleBar
+a-DatePickerR
+a-QuoteItem
+a-QuoteTax
+a-Modal
+a-BrandEdit
 a-BtnDark
 
 m-HeaderBar
@@ -21,6 +27,11 @@ m-FlowOptions
 m-TabsBarR
 m-ListR
 m-QuoteDetailR
+m-NewQuoteForm
+m-NewQuoteItem
+m-DelQuoteItem
+m-NewQuoteNote
+m-DelQuoteNote
 m-RecoveryAccountForm
 m-FlowOptionsDark
 m-HeaderBarEdit
@@ -29,16 +40,17 @@ m-EditForm
 o-ValidateEmail
 o-UserLogin
 o-UserRegForm
-o-MyQuotesOrg
+o-QuotesOrg
+o-QuotesNewOrg
 o-RecoveryAccount
 o-UserEditForm
-
 
 p-LoginPage
 p-Four0Four
 p-LandingPage
 p-ValidateEmailPage
 p-UserRegPage
-p-MyQuotesPage
+p-QuotesPage
+p-QuotesNewPage
 p-RecoveryAccountPage
 p-UserEditPage

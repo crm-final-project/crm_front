@@ -1,0 +1,1 @@
+export { DelQuoteNote } from './DelQuoteNote'

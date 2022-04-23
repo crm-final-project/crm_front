@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Typography, Grid, IconButton } from '@mui/material';
+import { useTheme } from '@mui/material/styles'; 
 import { makeStyles } from '@mui/styles';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material//Facebook';
@@ -9,18 +10,18 @@ import InstagramIcon from '@mui/icons-material//Instagram';
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: '25px 15px',
-    borderTop: `1px solid ${theme.palette.divider}`,
+    borderTop: `1px solid ${useTheme().palette.divider}`,
     textAlign: 'center',
   },
   share: {
     fontSize: '32px',
-    border: `1px solid ${theme.palette.divider}`,
+    border: `1px solid ${useTheme().palette.divider}`,
     borderRadius: '50%',
-    margin: theme.spacing(2, 1),
+    margin: useTheme().spacing(2, 1),
   },
   link: {
     display: 'inline-block',
-    margin: theme.spacing(1),
+    margin: useTheme().spacing(1),
   },
   footLink: {
     textDecoration: 'none',

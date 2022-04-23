@@ -1,4 +1,5 @@
-export { MyQuotesOrg } from './MyQuotesOrg';
+export { QuotesNewOrg } from './QuotesNewOrg';
+export { QuotesOrg } from './QuotesOrg';
 export { RecoveryAccount } from './RecoveryAccount';
 export { UserLogin } from './UserLogin';
 export { UserRegForm } from './UserRegForm';
