@@ -1,7 +1,11 @@
 import httpRequest from '..';
 
 const createQuote = (quote) => {
-  return httpRequest.post('/quotes', quote);
+  return httpRequest.post('/quotes', quote, {
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
 };
 
 const getAllQuotes = () => {

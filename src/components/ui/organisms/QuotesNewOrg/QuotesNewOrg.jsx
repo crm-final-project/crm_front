@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createQuote } from '../../../../api/quotes';
 import { Modal, TitleBar } from '../../atoms';
 import {
   FlowOptions,
@@ -60,7 +61,7 @@ export const QuotesNewOrg = (props) => {
   });
   const [quoteInfo, setQuoteInfo] = useState({
     quoteId: '',
-    quoteCurrency: 'cop',
+    quoteCurrency: 'COP',
     quoteDocDate: new Date(),
     quoteExpDate: new Date(),
   });
@@ -123,11 +124,21 @@ export const QuotesNewOrg = (props) => {
 
   const buildQuote = () => {
     return {
-      id: quoteInfo.quoteId,
-      currency: quoteInfo.quoteCurrency,
-      docDate: quoteInfo.quoteDocDate,
-      expDate: quoteInfo.quoteExpDate,
-      total: total,
+      quote: {
+        quoteNumber: quoteInfo.quoteId,
+        expirationDate: quoteInfo.quoteExpDate,
+        quoteStatus: true,
+        userId: '9dfcb317-e52f-4d67-8142-49622291368b',
+        clientId: '8369b0ce-cc04-48d8-90cb-0cb7eeb03836',
+      },
+      detail: {
+        validTime: new Date(quoteInfo.quoteExpDate).getDay(),
+        deliverTime: quoteInfo.quoteDocDate,
+        currencyType: quoteInfo.quoteCurrency,
+        paymentTerms: 'string',
+        subTotal: parseFloat(total),
+        total: parseFloat(total),
+      },
       client: {
         commercialName: clientInfo.commercialName,
         nit: clientInfo.nit,
@@ -143,21 +154,12 @@ export const QuotesNewOrg = (props) => {
       tax: tax,
     };
   };
-  const saveQuote = (url, data) => {
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        "Content-type": "application/json"
-      }
-    })
-  }
-  const on2Click = () => {
-    const url = "http://localhost:3001/quotations"
+
+  const on2Click = async () => {
     const quoteData = buildQuote();
-    console.log(quoteData);
-    saveQuote(url, quoteData);
-  }
+    const response = await createQuote(quoteData);
+    console.log(response);
+  };
 
   // === Updating Total price with useEffect ===
   useEffect(() => {
