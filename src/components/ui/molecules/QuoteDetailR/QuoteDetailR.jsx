@@ -4,19 +4,21 @@ import { BtnClose, BtnLight, QuoteItemR, TotalCash } from '../../atoms';
 import { useEffect } from 'react';
 
 export const QuoteDetailR = (props) => {
+  const {showModal, currentQuote} = props;
   const modalRoot = document.getElementById('modal-root');
-  const isMobile = props.view === 'mobile' && 'mobile';
-  const { currentQuote } = props.states.quote;
-  const showModal = props.states.showModal.status;
+  const isMobile = props.view === 'mobile';
   // const items = currentQuote.items;
   // const notes = currentQuote.notes;
 
 
   const quoteDetail = () => (
-    <Container className={isMobile && 'quote-detail-r-box-mobile-container'} id='quotedetails'>
+    <Container className={isMobile ? 'quote-detail-r-box-mobile-container': ''} id='quotedetails'>
       <Box className={`quote-detail-r-box-${props.view}`}>
-        <Box className={`quote-detail-r-box-${props.view}-01`}>
-          {/* <p className={`quote-detail-r-box-${props.view}-01__client`}>{currentQuote.client}</p> */}
+        
+         {currentQuote.map((quote) => (
+          <>
+          <Box className={`quote-detail-r-box-${props.view}-01`}>
+          <p className={`quote-detail-r-box-${props.view}-01__client`}>{quote.client_id}</p>
           {/* <p>{currentQuote.date}</p> */}
 
           {/* { isMobile && <BtnClose states={props.states}/>} */}
@@ -48,6 +50,9 @@ export const QuoteDetailR = (props) => {
         <BtnLight title='invoice pdf' color={isMobile ? 'white' : ''} />
         <BtnLight title='quote pdf' color={isMobile ? 'white' : ''} />
       </Box>
+          </>
+         ) )} 
+          
       </Box>
     </Container>
   );

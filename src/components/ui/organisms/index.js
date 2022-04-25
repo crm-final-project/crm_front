@@ -7,3 +7,7 @@ export { UserEditForm } from './UserEditForm';
 export { ValidateEmail } from './ValidateEmail';
 export { HeroSection } from './HeroSection';
 export { StepSection } from './StepSection';
+export { QuoteSection } from './QuoteSection';
+export { TeamSection } from './TeamSection';
+export { CtaSection } from './CtaSection';
+export { Footer } from './Footer';

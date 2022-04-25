@@ -1,5 +1,5 @@
 import DatePicker from 'react-date-picker';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import './datepicker.css'
 
 const useStyles = makeStyles((theme) => ({

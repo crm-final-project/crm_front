@@ -15,6 +15,11 @@ a-DatePickerR
 a-QuoteItem
 a-QuoteTax
 a-Modal
+<<<<<<< HEAD
+=======
+a-BrandEdit
+a-BtnDark
+>>>>>>> 04746648282db75bb5a5929a6d7d7a8bc977bca1
 
 m-HeaderBar
 m-LoginForm
@@ -30,13 +35,17 @@ m-NewQuoteItem
 m-DelQuoteItem
 m-NewQuoteNote
 m-DelQuoteNote
+m-RecoveryAccountForm
+m-FlowOptionsDark
+m-HeaderBarEdit
 
 o-ValidateEmail
 o-UserLogin
 o-UserRegForm
 o-QuotesOrg
 o-QuotesNewOrg
-
+o-RecoveryAccount
+o-UserEditForm
 
 p-LoginPage
 p-Four0Four
@@ -45,4 +54,5 @@ p-ValidateEmailPage
 p-UserRegPage
 p-QuotesPage
 p-QuotesNewPage
-
+p-RecoveryAccountPage
+p-UserEditPage

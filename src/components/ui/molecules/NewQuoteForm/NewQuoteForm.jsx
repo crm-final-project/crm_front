@@ -10,7 +10,7 @@ import {
   Select,
   TextField,
 } from '@mui/material';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import { ArrowForwardIos } from '@mui/icons-material';
 
 const textFields = [

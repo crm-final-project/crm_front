@@ -1,7 +1,5 @@
-import { UserLogin } from "../../ui/organisms";
+import { UserLogin } from '../../ui/organisms';
 
 export const LoginPage = (props) => {
-	return <div >
-		<UserLogin />
-	</div>
+  return <UserLogin />;
 };

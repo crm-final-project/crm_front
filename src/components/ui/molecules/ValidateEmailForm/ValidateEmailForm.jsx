@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   Link,
   Grid,
@@ -6,12 +7,13 @@ import {
   Container,
   CssBaseline,
 } from "@mui/material";
-import { FlowOptions } from "../../molecules";
 
+import { FlowOptions } from "../../molecules";
 // Import atoms
 import { Input } from "../../atoms";
 
 export const ValidateEmailForm = (props) => {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -19,6 +21,13 @@ export const ValidateEmailForm = (props) => {
       email: data.get("email"),
       password: data.get("password"),
     });
+  };
+
+  const onClickCancel = () => navigate('/login');
+
+  const onClickSend = () => {
+    /* Service */
+    navigate('/login');
   };
 
   return (
@@ -41,13 +50,10 @@ export const ValidateEmailForm = (props) => {
           Ingresa el codigo enviado:
         </Typography>
         <Box onSubmit={handleSubmit} component="form" noValidate sx={{ mt: 4, textAlign: "center", justifyContent: "center" }}>
-          <Input name="code" type="text" id="code" label="Codigo" sx={{ mb: 6 }} />
-          <Link href="#">Generar un nuevo codigo</Link>
-          <Typography component="p" variant="caption" sx={{ mt: 24 }}>
-            Al ingresar estas aceptando nuestros terminos y condiciones
-          </Typography>
+          <Input name="new_password" type="text" id="new_password" label="Nueva Contraseña" sx={{ mb: 6 }} />
+          <Input name="repeat_password" type="text" id="repeat_password" label="Repetir Contraseña" sx={{ mb: 6 }} />
           <Grid container sx={{ mt: 2 }}>
-            <FlowOptions />
+            <FlowOptions btn1_title="Cancelar" btn1onClick={onClickCancel} btn2_title="Cambiar" btn2onClick={onClickSend} />
           </Grid>
         </Box>
       </Box>
