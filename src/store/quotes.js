@@ -1,8 +1,11 @@
 import create from 'zustand';
+import { getAllQuotes } from '../api/quotes';
 
 export const useQuoteStore = create((set) => ({
-  data: { month: [], older: [] },
+  quotes: { month: [], older: [] },
   currentQuote: [],
-  setData: (data) => set(() => ({ quotes: data })),
-  setCurrentQuote: (data) => set(() => ({ currentQuote: data })),
+  setQuotes: (month, older) => set(() => ({ quotes: { month, older } })),
+  setCurrentQuote: (current) => set(() => ({ currentQuote: current })),
+  showModal: false,
+  setShowModal: (show) => set(() => ({ showModal: show })),
 }));
