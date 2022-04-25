@@ -1,5 +1,4 @@
 import create from 'zustand';
-import { getAllQuotes } from '../api/quotes';
 
 export const useQuoteStore = create((set) => ({
   quotes: { month: [], older: [] },
