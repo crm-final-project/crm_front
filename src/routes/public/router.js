@@ -30,7 +30,7 @@ const PublicRouter = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<UserRegPage />} />
         <Route path='/forgot' element={<RecoveryAccountPage />} />
-        <Route path='/reset-password' element={<ValidateEmailPage />} />
+        <Route path='/reset-password/:userId' element={<ValidateEmailPage />} />
         <Route path='*' element={<LoginPage />} />
       </Routes>
     </>

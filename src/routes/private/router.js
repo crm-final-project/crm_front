@@ -32,6 +32,7 @@ const PrivateRouter = () => {
         <Route path='new' element={<QuotesNewPage />} />
         <Route path='/validate' element={<ValidateEmailPage />} />
         <Route path='/edit' element={<UserEditPage />} />
+        <Route path='/reset-password/:userId' element={<ValidateEmailPage />} />
         <Route path='*' element={<Four0Four />} />
       </Routes>
     </>

@@ -1,31 +1,29 @@
 export const FORMDATA = [
   {
-    name: 'firstname',
+    name: 'firstName',
     label: 'First name',
     type: 'text',
     id: 'input-first-name',
     autoComplete: 'name',
   },
   {
-    name: 'secondname',
+    name: 'secondName',
     label: 'Second name',
     type: 'text',
     id: 'input-second-name',
     autoComplete: 'name',
   },
   {
-    name: 'lastname',
+    name: 'lastName',
     label: 'Last name',
     type: 'text',
     id: 'input-last-name',
-    autoComplete: 'name',
   },
   {
     name: 'email',
     label: 'Email Address',
     type: 'email',
     id: 'input-email',
-    autoComplete: 'email',
   },
   {
     name: 'phone',
@@ -41,11 +39,24 @@ export const FORMDATA = [
     id: 'input-address',
     autoComplete: 'address',
   },
+  {
+    name: 'password',
+    label: 'Password',
+    type: 'password',
+    id: 'input-password',
+  },
+  {
+    name: 'confirmPass',
+    label: 'Confirm Password',
+    type: 'password',
+    id: 'input-confirm-pass',
+  },
 ];
 
 export const SELECTORS = [
   {
     label: 'Treatment',
+    name: 'treatment',
     items: [
       { val: 'sr', text: 'Sr.' },
       { val: 'sra', text: 'Sra.' },
@@ -54,6 +65,7 @@ export const SELECTORS = [
   },
   {
     label: 'Country',
+    name: 'country',
     items: [{ val: 'colombia', text: 'Colombia' }],
   },
 ];

@@ -81,10 +81,9 @@ const pages = [
 ];
 
 export const HeaderBar = (props) => {
-  const [isLoggin, setIsLoggin] = useState(false);
-  const loggin = new Loggin();
-
   const classes = useStyles();
+  const loggin = new Loggin();
+  const [isLoggin, setIsLoggin] = useState(false);
   const [navDrawer, setNavDrawer] = useState(false);
 
   const toggleDrawer = () => {
