@@ -15,8 +15,11 @@ a-DatePickerR
 a-QuoteItem
 a-QuoteTax
 a-Modal
+<<<<<<< HEAD
+=======
 a-BrandEdit
 a-BtnDark
+>>>>>>> 04746648282db75bb5a5929a6d7d7a8bc977bca1
 
 m-HeaderBar
 m-LoginForm

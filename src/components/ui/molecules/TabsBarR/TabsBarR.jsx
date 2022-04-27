@@ -1,13 +1,21 @@
 import { useEffect } from 'react';
+import shallow from 'zustand/shallow';
 import { TabR } from '../../atoms';
 import { Container, Box } from '@mui/material';
+import { useQuoteStore } from '../../../../store';
 
 export const TabsBarR = (props) => {
-  const {setActiveTab, setCurrentQuote, activeTab, showModal} = props;
+  const [setCurrentQuote] = useQuoteStore(
+    (state) => [
+      state.setCurrentQuote
+    ],
+    shallow
+  );
+  const {setActiveTab, activeTab} = props;
   // const {activeTab} = props.states.tabs; 
 
   useEffect(() => {
-    setCurrentQuote(props.data[0])
+    setCurrentQuote(props.data)
   }, [activeTab]);
 
   return (

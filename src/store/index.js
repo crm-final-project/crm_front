@@ -1,0 +1,1 @@
+export { useQuoteStore } from './quotes';

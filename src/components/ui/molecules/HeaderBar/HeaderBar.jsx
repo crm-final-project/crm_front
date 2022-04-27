@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   AppBar,
@@ -21,6 +21,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import { Brand } from '../../atoms';
+import { Loggin } from '../../../../utils/login';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -67,36 +68,41 @@ const HideOnScroll = ({ children, window }) => {
     target: window ? window() : undefined,
   });
   return (
-    <Slide appear={false} direction="down" in={!trigger}>
+    <Slide appear={false} direction='down' in={!trigger}>
       {children}
     </Slide>
   );
 };
 
 const pages = [
-  { name: 'Quotations', path: '/myquotes' },
-  { name: 'Invoices', path: '/myinvoices' },
-  { name: 'Expenses', path: '/myexpenses' },
+  { name: 'Quotes', path: '/quotes' },
+  { name: 'Invoices', path: '/invoices' },
+  { name: 'Expenses', path: '/expenses' },
 ];
 
 export const HeaderBar = (props) => {
   const classes = useStyles();
+  const loggin = new Loggin();
+  const [isLoggin, setIsLoggin] = useState(false);
   const [navDrawer, setNavDrawer] = useState(false);
 
   const toggleDrawer = () => {
     setNavDrawer(!navDrawer);
   };
 
+  useEffect(() => setIsLoggin(loggin.isLoggedIn()));
+
   return (
     <React.Fragment>
       <HideOnScroll {...props}>
-        <AppBar color="inherit" elevation={0}>
+        <AppBar color='inherit' elevation={0}>
           <Toolbar className={classes.toolbar}>
             <Box>
-              <Link to="/" sx={{ textDecoration: 'none' }}>
+              <Link to='/' sx={{ textDecoration: 'none' }}>
                 <Brand />
               </Link>
             </Box>
+
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <ButtonGroup>
                 {pages.map((nav, index) => (
@@ -108,7 +114,7 @@ export const HeaderBar = (props) => {
                     <Button
                       className={classes.navBtn}
                       sx={{ textDecoration: 'none' }}
-                      variant="text"
+                      variant='text'
                     >
                       {nav.name}
                     </Button>
@@ -130,22 +136,37 @@ export const HeaderBar = (props) => {
                   // },
                 }}
               >
-                <Divider orientation="vertical" variant="middle" flexItem />
+                <Divider orientation='vertical' variant='middle' flexItem />
               </Box>
-              <Link
-                to="/login"
-                style={{ textDecoration: 'none', marginLeft: 'auto', marginRight: '.5rem'}}
-              >
+              {isLoggin ? (
                 <Button
                   className={classes.navBtn}
-                  variant="text"
+                  variant='text'
                   startIcon={<PersonIcon />}
+                  onClick={() => loggin.logOut()}
                 >
-                  Login
+                  LogOut
                 </Button>
-              </Link>
-              <Link to="/register" sx={{ textDecoration: 'none' }}>
-                <Button color="primary" variant="contained" disableElevation>
+              ) : (
+                <Link
+                  to='/login'
+                  style={{
+                    textDecoration: 'none',
+                    marginLeft: 'auto',
+                    marginRight: '.5rem',
+                  }}
+                >
+                  <Button
+                    className={classes.navBtn}
+                    variant='text'
+                    startIcon={<PersonIcon />}
+                  >
+                    Login
+                  </Button>
+                </Link>
+              )}
+              <Link to='/register' sx={{ textDecoration: 'none' }}>
+                <Button color='primary' variant='contained' disableElevation>
                   Sign Up
                 </Button>
               </Link>
@@ -160,18 +181,18 @@ export const HeaderBar = (props) => {
       </HideOnScroll>
       <Box mt={7} />
       <Drawer
-        variant="temporary"
+        variant='temporary'
         onClose={toggleDrawer}
         open={navDrawer}
-        anchor="right"
+        anchor='right'
       >
         <Box>
-          <IconButton onClick={toggleDrawer} color="primary">
+          <IconButton onClick={toggleDrawer} color='primary'>
             <ChevronRightIcon />
           </IconButton>
         </Box>
         <Divider />
-        <List color="textPrimary">
+        <List color='textPrimary'>
           {pages.map((item, i) => (
             <Link
               key={item.name}
@@ -185,21 +206,21 @@ export const HeaderBar = (props) => {
             </Link>
           ))}
           <Link
-            to="/login"
+            to='/login'
             sx={{ textDecoration: 'none', color: 'rgba(0,0,0,0.9)' }}
             onClick={toggleDrawer}
           >
             <ListItem button>
-              <ListItemText primary="Login" />
+              <ListItemText primary='Login' />
             </ListItem>
           </Link>
           <Link
-            to="/register"
+            to='/register'
             sx={{ textDecoration: 'none', color: 'rgba(0,0,0,0.9)' }}
             onClick={toggleDrawer}
           >
             <ListItem button>
-              <ListItemText primary="Sign Up" />
+              <ListItemText primary='Sign Up' />
             </ListItem>
           </Link>
         </List>

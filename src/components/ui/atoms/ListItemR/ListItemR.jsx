@@ -8,8 +8,8 @@ export const ListItemR = (props) => {
   return (
     <Box sx={STYLES.BOX} className='list_itemR' onClick={props.onClick}>
       <Box className='list_itemR_top'>
-        <p className='list_itemR_top__client'>{props.details.id}</p>
-        {/* <p className='list_itemR_top__date'>{props.details.created_at}</p> */}
+        {/* <p className='list_itemR_top__client'>{props.detail.id}</p> */}
+        <p className='list_itemR_top__date'>{props.name}</p>
       </Box>
       {/* <Box className='list_itemR_bottom'>
         <p className='list_itemR_bottom__price'>${props.details.sub_total}</p>
