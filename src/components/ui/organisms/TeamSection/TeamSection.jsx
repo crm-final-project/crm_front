@@ -6,7 +6,16 @@ import {
   Box,
   Avatar,
 } from '@mui/material';
-import user from '../../../../assets/img/user.png';
+import adrian from '../../../../assets/avatars/adrian_profile.jpeg';
+import andres from '../../../../assets/avatars/andres_profile.jpg';
+import david from '../../../../assets/avatars/david_profile.jpeg';
+import jesus from '../../../../assets/avatars/jesus_profile.jpeg';
+import jhonatan from '../../../../assets/avatars/jhonatan_profile.jpeg';
+import jose from '../../../../assets/avatars/jose_profile.png';
+import ronnie from '../../../../assets/avatars/ronnie_profile.jpeg';
+import wilder from '../../../../assets/avatars/wilder_profile.jpeg';
+
+
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,17 +25,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const backendTeam = [
-  { id: 1, name: 'Jose Vallejo', cargo: 'Fullstack Developer', image: user },
-  { id: 2, name: 'Andres Hugueth', cargo: 'Backend Developer', image: user },
-  { id: 3, name: 'Adrian De la asuncion', cargo: 'Backend Developer', image: user },
-  { id: 4, name: 'Jesus Gonzalez', cargo: 'Backend Developer', image: user },
+  { id: 1, name: 'Jose Vallejo', cargo: 'Fullstack Developer', image: jose },
+  { id: 2, name: 'Andres Hugueth', cargo: 'Backend Developer', image: andres },
+  { id: 3, name: 'Adrian De la asuncion', cargo: 'Backend Developer', image: adrian },
+  { id: 4, name: 'Jesus Gonzalez', cargo: 'Backend Developer', image: jesus },
 ];
 
 const frontendTeam = [
-  { id: 1, name: 'Ronnie Barrios', cargo: 'Fullstack Developer', image: user },
-  { id: 2, name: 'Wilder Rincon', cargo: 'Frontend Developer', image: user },
-  { id: 3, name: 'David De la Hoz', cargo: 'Frontend Developer', image: user },
-  { id: 4, name: 'Jhonatan Angarita', cargo: 'Frontend Developer', image: user },
+  { id: 1, name: 'Ronnie Barrios', cargo: 'Fullstack Developer', image: ronnie },
+  { id: 2, name: 'Wilder Rincon', cargo: 'Frontend Developer', image: wilder },
+  { id: 3, name: 'David De la Hoz', cargo: 'Frontend Developer', image: david },
+  { id: 4, name: 'Jhonatan Angarita', cargo: 'Frontend Developer', image: jhonatan },
 ];
 
 export const TeamSection = () => {
@@ -83,6 +92,7 @@ export const TeamSection = () => {
                     sx={(theme) => ({
                       width: 192,
                       height: 192,
+                      boxShadow: '0 0 4px gray',
                       [theme.breakpoints.up('md')]: {
                         width: 256,
                         height: 256,

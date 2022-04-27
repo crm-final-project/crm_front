@@ -36,7 +36,7 @@ export const CtaSection = () => {
             <b>Ready to create a digital document?</b>
           </Typography>
           <Box mt={3}>
-            <Button
+            {/* <Button
               classes={{ hover: classes.hover }}
               size="large"
               variant="contained"
@@ -51,7 +51,7 @@ export const CtaSection = () => {
               })}
             >
               Get Started
-            </Button>
+            </Button> */}
           </Box>
         </Grid>
       </Grid>

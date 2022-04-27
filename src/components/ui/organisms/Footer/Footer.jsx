@@ -79,10 +79,7 @@ export const Footer = () => {
               DocuCRM.
             </Typography>
             <span>
-              All rights reserved. Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Est blanditiis dolorem culpa incidunt minus,
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-              blanditiis dolorem culpa incidunt minus.
+              All rights reserved.
             </span>
           </Typography>
         </Grid>

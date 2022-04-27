@@ -52,24 +52,12 @@ export const HeroSection = () => {
                   })}
                   paragraph
                 >
-                  Create a quote, easy and quickly with just one click
+                  DOCU-CRM, easy and quickly personal tool
                 </Typography>
                 <Typography paragraph>
-                  Create your documents easy, fast and send them to your clients
-                  in an agile way, generate your digital documents and send them
-                  to your clients.
+                  Create your quotations, fast templates, and saving your data.
+                  Generate your invoices with just a few clicks.
                 </Typography>
-                <Button
-                  size="large"
-                  variant="contained"
-                  sx={{
-                    background: 'white',
-                    color: 'primary.main',
-                    textTransform: 'capitalize',
-                  }}
-                >
-                  Discover More
-                </Button>
               </Grid>
             </Grid>
           </Container>

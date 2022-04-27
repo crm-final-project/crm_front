@@ -77,7 +77,7 @@ const HideOnScroll = ({ children, window }) => {
 const pages = [
   { name: 'Quotes', path: '/quotes' },
   { name: 'Invoices', path: '/invoices' },
-  { name: 'Expenses', path: '/expenses' },
+  // { name: 'Expenses', path: '/expenses' },
 ];
 
 export const HeaderBar = (props) => {
@@ -105,21 +105,24 @@ export const HeaderBar = (props) => {
 
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <ButtonGroup>
-                {pages.map((nav, index) => (
-                  <Link
-                    to={nav.path}
-                    key={nav.name}
-                    style={{ textDecoration: 'none' }}
-                  >
-                    <Button
-                      className={classes.navBtn}
-                      sx={{ textDecoration: 'none' }}
-                      variant='text'
-                    >
-                      {nav.name}
-                    </Button>
-                  </Link>
-                ))}
+                {pages.map(
+                  (nav, index) =>
+                    isLoggin && (
+                      <Link
+                        to={nav.path}
+                        key={nav.name}
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <Button
+                          className={classes.navBtn}
+                          sx={{ textDecoration: 'none' }}
+                          variant='text'
+                        >
+                          {nav.name}
+                        </Button>
+                      </Link>
+                    )
+                )}
               </ButtonGroup>
               <Box
                 sx={{
@@ -165,11 +168,13 @@ export const HeaderBar = (props) => {
                   </Button>
                 </Link>
               )}
-              <Link to='/register' sx={{ textDecoration: 'none' }}>
-                <Button color='primary' variant='contained' disableElevation>
-                  Sign Up
-                </Button>
-              </Link>
+              {!isLoggin && (
+                <Link to='/register' sx={{ textDecoration: 'none' }}>
+                  <Button color='primary' variant='contained' disableElevation>
+                    Sign Up
+                  </Button>
+                </Link>
+              )}
             </Box>
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
               <IconButton onClick={toggleDrawer}>
