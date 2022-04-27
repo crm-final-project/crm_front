@@ -70,13 +70,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const steps = [
-  { text: 'Type your data', icon: <EditIcon />, image: laptop1 },
+  { text: 'Introduce your data', icon: <EditIcon />, image: laptop1 },
   {
-    text: 'Generate your Doc in pdf',
+    text: 'Generate a PDF document',
     icon: <PictureAsPdfIcon />,
     image: laptop2,
   },
-  { text: 'Send your quotes!', icon: <SendIcon />, image: laptop3 },
+  { text: 'Send your quote !', icon: <SendIcon />, image: laptop3 },
 ];
 
 export const StepSection = () => {
