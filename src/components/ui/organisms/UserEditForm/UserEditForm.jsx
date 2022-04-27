@@ -1,6 +1,6 @@
 import { HeaderBarEdit, FlowOptionsDark, EditForm } from '../../molecules';
 import { Grid, useMediaQuery, Box } from '@mui/material';
-import {ReactComponent as UserEdit} from '../../../../assets/userEdit.svg';
+import {ReactComponent as UserSave} from '../../../../assets/userSave.svg';
 
 
 export const UserEditForm = (props) => {
@@ -21,7 +21,7 @@ export const UserEditForm = (props) => {
           <FlowOptionsDark btn1_title='Regresar' btn2_title='Guardar' />
         </Grid>
         <Grid item xs={0} sm={0} md={4}>
-          {hidden ? null : <UserEdit />}
+          {hidden ? null : <UserSave />}
         </Grid>
       </Grid>
       </Box>
