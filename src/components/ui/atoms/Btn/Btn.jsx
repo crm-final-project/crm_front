@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 
-export const BtnLight = ({ color, onClick, title, disabled }) => {
+export const Btn = ({ color, onClick, title, disabled, variant }) => {
   const myColor = color;
   const STYLES = {
     BUTTON: {
@@ -16,12 +16,13 @@ export const BtnLight = ({ color, onClick, title, disabled }) => {
     <Button
       type='submit'
       fullWidth
-      variant='outlined'
+      variant={!variant ? "outlined" : variant}
       sx={STYLES.BUTTON}
       onClick={onClick}
       disabled={disabled}
     >
       {!title ? 'prop "title" miss' : title}
+
     </Button>
   );
 };
