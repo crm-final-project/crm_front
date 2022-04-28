@@ -25,7 +25,7 @@ const PublicRouter = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 800);
   });
   return (
     <>
@@ -35,7 +35,14 @@ const PublicRouter = () => {
         </Box>
       )}
       <Routes>
+        {/* public routes */}
         <Route path='/' element={<LandingPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<UserRegPage />} />
+        <Route path='/forgot' element={<RecoveryAccountPage />} />
+        <Route path='/reset-password/:userId' element={<ValidateEmailPage />} />
+
+        {/* private routes */}
         <Route element={<RequireAuth />}>
           <Route path='/quotes' element={<QuotesPage />} />
           <Route path='/new' element={<QuotesNewPage />} />
@@ -44,10 +51,7 @@ const PublicRouter = () => {
           <Route path='/reset-password/:userId' element={<ValidateEmailPage />} />
           <Route path='*' element={<Four0Four />} />
         </Route>
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<UserRegPage />} />
-        <Route path='/forgot' element={<RecoveryAccountPage />} />
-        <Route path='/reset-password/:userId' element={<ValidateEmailPage />} />
+
         <Route path='*' element={<LoginPage />} />
       </Routes>
     </>
@@ -59,10 +63,6 @@ function RequireAuth() {
   let location = useLocation();
 
   if (!auth) {
-    // Redirect them to the /login page, but save the current location they were
-    // trying to go to when they were redirected. This allows us to send them
-    // along to that page after they login, which is a nicer user experience
-    // than dropping them off on the home page.
     return <Navigate to="/login" state={{ from: location }} />;
   }
 
