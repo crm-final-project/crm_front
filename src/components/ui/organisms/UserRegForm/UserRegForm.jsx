@@ -1,5 +1,5 @@
 import { HeaderBar } from '../../molecules';
-import { FlowOptions, RegisterForm } from '../../molecules';
+import { RegisterForm } from '../../molecules';
 
 export const UserRegForm = (props) => {
   return (
