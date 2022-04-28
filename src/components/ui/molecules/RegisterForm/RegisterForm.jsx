@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const RegisterForm = ({titleBtn1, titleBtn2}) => {
+export const RegisterForm = ({titleBtn1, titleBtn2, variantBtn2}) => {
   const navigate = useNavigate();
   const classes = useStyles();
 
@@ -90,6 +90,7 @@ export const RegisterForm = ({titleBtn1, titleBtn2}) => {
                 <FlowOptions
                   btn1_title={titleBtn1}
                   btn1onClick={handleCancelBtn}
+                  btn2_variant={variantBtn2}
                   btn2_title={titleBtn2}
                   btn2Disabled={isSubmitting}
                 />
