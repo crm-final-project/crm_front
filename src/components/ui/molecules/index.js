@@ -16,3 +16,4 @@ export { TabsBarR } from './TabsBarR';
 export { FlowOptionsDark } from './FlowOptionsDark';
 export { HeaderBarEdit } from './HeaderBarEdit';
 export { ValidateEmailForm } from './ValidateEmailForm';
+export { EditForm } from './EditForm';
