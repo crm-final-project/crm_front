@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { createQuote } from '../../../../api/quotes';
 import { Modal, TitleBar } from '../../atoms';
 import {
@@ -11,6 +12,7 @@ import {
 } from '../../molecules';
 
 export const QuotesNewOrg = (props) => {
+  const navigate = useNavigate()
   // === Defining all states ===
   const [quoteDate, setQuoteDate] = useState(new Date());
   const [expDate, setExpDate] = useState(new Date());
@@ -149,7 +151,6 @@ export const QuotesNewOrg = (props) => {
         city: clientInfo.city,
         address: clientInfo.address,
       },
-      items: items,
       notes: notes,
       tax: tax,
     };
@@ -158,7 +159,7 @@ export const QuotesNewOrg = (props) => {
   const on2Click = async () => {
     const quoteData = buildQuote();
     const response = await createQuote(quoteData);
-    console.log(response);
+    navigate('/')
   };
 
   // === Updating Total price with useEffect ===

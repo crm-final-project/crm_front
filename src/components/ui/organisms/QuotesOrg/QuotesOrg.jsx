@@ -3,7 +3,7 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 import shallow from 'zustand/shallow';
 import * as ReactDOMServer from 'react-dom/server';
 import htmlToPdfmake from 'html-to-pdfmake';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Container } from '@mui/material';
 // import { DATA } from './quotesdata';
 import { TotalCash } from '../../atoms';
@@ -16,8 +16,10 @@ import {
 } from '../../molecules';
 import { useQuoteStore } from '../../../../store';
 import { getAllQuotes } from '../../../../api/quotes';
+import { useNavigate } from 'react-router-dom';
 
 export const QuotesOrg = (props) => {
+  const navigate = useNavigate()
   const [quotes, setQuotes, setCurrentQuote] = useQuoteStore(
     (state) => [
       state.quotes,
@@ -27,7 +29,6 @@ export const QuotesOrg = (props) => {
     shallow
   );
   const [activeTab, setActiveTab] = useState(true);
-  const [showModal, setShowModal] = useState(false);
   // const [currentQuote, setCurrentQuote] = useState([]);
   const [cashVal, setCashVal] = useState('9.999.990');
 
@@ -173,6 +174,10 @@ export const QuotesOrg = (props) => {
     );
   }
 
+  const newQuoteLink =() => {
+    navigate('/new')
+  }
+
   // function generatePDF() {
   //   var html = htmlToPdfmake(htmlTest());
   //   var dd = { content: html };
@@ -184,7 +189,7 @@ export const QuotesOrg = (props) => {
     <Box className='my-quotes-org-box'>
       <Box className='my-quotes-org-box__list'>
         <HeaderBar pageTitle='My Quotes' />
-        <FlowOptions btn1_title='Get report' btn2_title='New Quote' />
+        <FlowOptions btn1_title='Get report' btn2_title='New Quote' btn2onClick={newQuoteLink} />
         <Container>
           <TotalCash val={cashVal} className='quote-detail-r-box__total-list' />
         </Container>

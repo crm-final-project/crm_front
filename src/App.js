@@ -1,25 +1,24 @@
-import { useEffect, useState } from 'react';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
-import { Loggin } from './utils/login';
+
 import PublicRouter from './routes/public/router';
-import PrivateRouter from './routes/private/router';
+
 
 import theme from './theme';
 import './App.css';
 
-function App() {
-  const [isLoggin, setIsLoggin] = useState(false);
-  const loggin = new Loggin();
+const environments = require('./environments/index')
 
-  useEffect(() => setIsLoggin(loggin.isLoggedIn()));
+environments();
+
+function App() {
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {isLoggin ? <PrivateRouter /> : <PublicRouter />}
+        <PublicRouter />
       </ThemeProvider>
     </>
   );
