@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const backendTeam = [
   { id: 1, name: 'Jose Vallejo', cargo: 'Fullstack Developer', image: jose },
   { id: 2, name: 'Andres Hugueth', cargo: 'Backend Developer', image: andres },
-  { id: 3, name: 'Adrian De la asuncion', cargo: 'Backend Developer', image: adrian },
+  { id: 3, name: 'Adrian De la asuncion', cargo: 'Fullstack Developer', image: adrian },
   { id: 4, name: 'Jesus Gonzalez', cargo: 'Backend Developer', image: jesus },
 ];
 

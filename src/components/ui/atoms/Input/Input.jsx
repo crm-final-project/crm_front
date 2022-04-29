@@ -12,14 +12,11 @@ export const Input = (props) => {
         autoFocus
         {...props}
         {...field}
-        name={props.name}
-        label={props.label}
         id={props.id}
-        autoComplete={props.autoComplete}
         sx={props.sx}
       />
 
-      {meta.touched && meta.error && <span>{meta.error}</span>}
+      {meta.touched && meta.error && <span style={{color: 'red', marginBottom: 8}}>{meta.error}</span>}
     </>
   );
 };
