@@ -5,7 +5,7 @@ export const UserRegForm = (props) => {
   return (
     <>
       <HeaderBar />
-      <RegisterForm titleBtn1={'cancel'} titleBtn2={'continue'} />
+      <RegisterForm title='Contact Information' titleBtn1={'cancel'} titleBtn2={'continue'} />
     </>
   );
 };
