@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { makeStyles } from '@mui/styles';
@@ -31,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const RegisterForm = ({titleBtn1, titleBtn2, variantBtn2}) => {
+export const RegisterForm = ({titleBtn1, titleBtn2, variantBtn2, title}) => {
   const navigate = useNavigate();
   const classes = useStyles();
-
   const handleCancelBtn = () => {
     navigate('/login')
   }
+  
 
   return (
     <>
@@ -47,7 +47,7 @@ export const RegisterForm = ({titleBtn1, titleBtn2, variantBtn2}) => {
             variant='h5'
             sx={{ textAlign: 'center', marginBottom: 2 }}
           >
-            Contact Info
+            {title}
           </Typography>
           <Formik
             initialValues={{
