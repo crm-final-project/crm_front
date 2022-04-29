@@ -11,6 +11,8 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.1",
+    "formik": "^2.2.9",
     "html-to-pdfmake": "^2.3.11",
     "pdfmake": "^0.2.5",
     "react": "^17.0.2",
@@ -20,13 +22,16 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11",
+    "zustand": "^4.0.0-rc.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean-install": "rm -rf node_modules && rm -rf package-lock.json && rm -rf yarn.lock && yarn cache clean --force && yarn install"
   },
   "eslintConfig": {
     "extends": [

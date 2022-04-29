@@ -1,6 +1,6 @@
 export { Brand } from './Brand';
 export { BtnClose } from './BtnClose';
-export { BtnLight } from './BtnLight';
+export { Btn } from './Btn';
 export { BtnLink } from './BtnLink';
 export { BtnLogin } from './BtnLogin';
 export { DatePickerR } from './DatePickerR';
@@ -15,5 +15,4 @@ export { Selector } from './Selector';
 export { TabR } from './TabR';
 export { TitleBar } from './TitleBar';
 export { TotalCash } from './TotalCash';
-export { BtnDark } from './BtnDark';
 export { BrandEdit } from './BrandEdit';

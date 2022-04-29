@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
 export const BtnClose = (props) => {
-  const setShowModal = props.states.showModal.setter;
+  const { setShowModal } = props;
   const STYLE = {
     BOX: {
       border: '1px solid white',
@@ -16,5 +16,9 @@ export const BtnClose = (props) => {
     },
   };
 
-  return <Box sx={STYLE.BOX} onClick={()=> setShowModal(false)}>X</Box>;
+  return (
+    <Box sx={STYLE.BOX} onClick={() => setShowModal(false)}>
+      X
+    </Box>
+  );
 };

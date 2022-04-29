@@ -1,8 +1,5 @@
-import { HeaderBar, RecoveryAccountForm } from "../../molecules";
+import { RecoveryAccountForm } from '../../molecules';
 
 export const RecoveryAccount = (props) => {
-	return <>
-		<HeaderBar />
-		<RecoveryAccountForm />
-	</>
+  return <RecoveryAccountForm />;
 };

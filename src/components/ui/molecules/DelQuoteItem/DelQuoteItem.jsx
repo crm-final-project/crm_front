@@ -39,7 +39,7 @@ export const DelQuoteItem = ({states}) => {
         <FlowOptions
           btn1_title='cancel'
           btn2_title='delete'
-		  btn1onClick={handleBtn1Click}
+		      btn1onClick={handleBtn1Click}
           btn2onClick={handleBtn2Click}
         />
       </Box>

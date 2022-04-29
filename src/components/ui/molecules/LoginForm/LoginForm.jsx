@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
 // Import components Material UI
 import {
@@ -6,41 +6,43 @@ import {
   FormControlLabel,
   Checkbox,
   Link,
-	Grid,
+  Grid,
   Box,
   Typography,
   Container,
+  Button,
+  TextField,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
+import { login } from '../../../../api/login';
 
-// Import atoms
-import { Input } from '../../atoms';
-import { BtnLogin } from '../../atoms';
+export const LoginForm = (props) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-import { makeStyles } from '@mui/styles';
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    backgroundColor: 'red',
-  },
-}));
-
-
-export const LoginForm
- = (props) => {
-	 const handleSubmit = (event) => {
-		 event.preventDefault();
-		 const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
-	const classes = useStyles();
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = async () => {
+    const credentials = {
+      email,
+      password,
+    };
+    const { data: { access_token }, status } = await login(credentials);
+    if (status === 200) {
+      window.localStorage.setItem('access_token', access_token);
+      window.location = '/quotes';
+    }
+  };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component='main' maxWidth='xs'>
       <Box
         sx={{
           marginTop: 8,
@@ -54,37 +56,49 @@ export const LoginForm
         <Avatar sx={{ m: 1, backgroundColor: '#2d8254' }}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component='h1' variant='h5'>
           Login
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <Input
-            name="email"
-            label="Email Address"
-            type="email"
-            id="email"
-            autoComplete="email"
+        <Box
+          component='form'
+          noValidate
+          sx={{ mt: 1, display: 'flex', flexDirection: 'column' }}
+        >
+          <TextField
+            sx={{ marginBottom: 2 }}
+            id='email'
+            onChange={handleEmail}
+            label='Email'
+            placeholder='email'
           />
-          <Input
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
+          <TextField
+            id='password'
+            type='password'
+            onChange={handlePassword}
+            label='Password'
+            placeholder='password'
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            control={<Checkbox value='remember' color='primary' />}
+            label='Remember me'
           />
-          <BtnLogin className={classes.button} />
+          <Button
+            type='button'
+            onClick={handleLogin}
+            fullWidth
+            variant='contained'
+            sx={{ mt: 3, mb: 2, backgroundColor: '#2d8254' }}
+          >
+            Login
+          </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href='/forgot' variant='body2'>
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href='/register' variant='body2'>
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
@@ -92,5 +106,5 @@ export const LoginForm
         </Box>
       </Box>
     </Container>
-  );	
+  );
 };
