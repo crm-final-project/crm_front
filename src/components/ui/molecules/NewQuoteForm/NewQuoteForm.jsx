@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BtnLight, DatePickerR, QuoteItem, QuoteTax } from '../../atoms';
+import { Btn, DatePickerR, QuoteItem, QuoteTax } from '../../atoms';
 import {
   Accordion,
   AccordionDetails,
@@ -267,7 +267,7 @@ export const NewQuoteForm = (props) => {
                   />
                 );
               })}
-              <BtnLight title='+ Add Item' onClick={handleAddItem} />
+              <Btn title='+ Add Item' onClick={handleAddItem} />
             </Box>
           </AccordionDetails>
         </Accordion>
@@ -300,7 +300,7 @@ export const NewQuoteForm = (props) => {
                   />
                 );
               })}
-              <BtnLight title='+ Add Note' onClick={handleAddNote} />
+              <Btn title='+ Add Note' onClick={handleAddNote} />
             </Box>
           </AccordionDetails>
         </Accordion>

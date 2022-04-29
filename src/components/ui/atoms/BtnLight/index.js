@@ -1,1 +1,0 @@
-export { BtnLight } from './BtnLight'

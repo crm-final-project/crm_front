@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { makeStyles } from '@mui/styles';
@@ -10,7 +9,7 @@ import { FlowOptions } from '../FlowOptions';
 import { createUser } from '../../../../api/user';
 import { userValidate } from '../../../../validate/userReg';
 
-import './registerform.css';
+import './Editform.css';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -31,24 +30,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const RegisterForm = ({titleBtn1, titleBtn2, variantBtn2, title}) => {
+export const EditForm = (props) => {
   const navigate = useNavigate();
   const classes = useStyles();
+
   const handleCancelBtn = () => {
     navigate('/login')
   }
-  
 
   return (
     <>
       <Container component='main' maxWidth='xs'>
         <Box className='register-form-box'>
-          <Typography
-            variant='h5'
-            sx={{ textAlign: 'center', marginBottom: 2 }}
-          >
-            {title}
-          </Typography>
           <Formik
             initialValues={{
               firstName: '',
@@ -88,11 +81,11 @@ export const RegisterForm = ({titleBtn1, titleBtn2, variantBtn2, title}) => {
                 <Input name='city' label='City' type='text' />
 
                 <FlowOptions
-                  btn1_title={titleBtn1}
+                  btn1_title='cancel'
                   btn1onClick={handleCancelBtn}
-                  btn2_variant={variantBtn2}
-                  btn2_title={titleBtn2}
+                  btn2_title='continue'
                   btn2Disabled={isSubmitting}
+                  btn2_variant='contained'
                 />
               </Form>
             )}

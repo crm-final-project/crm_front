@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import shallow from 'zustand/shallow';
 import { createPortal } from 'react-dom';
 import { Box, Container } from '@mui/material';
-import { BtnClose, BtnLight, QuoteItemR, TotalCash } from '../../atoms';
+import { BtnClose, Btn, QuoteItemR, TotalCash } from '../../atoms';
 import { useQuoteStore } from '../../../../store';
 
 export const QuoteDetailR = (props) => {
@@ -39,8 +39,8 @@ export const QuoteDetailR = (props) => {
             </Box>
             <TotalCash view={isMobile} val={900000} title='quote' />
             <Box className={`quote-detail-r-box-${props.view}-02a`}>
-              <BtnLight title='delete' color={isMobile ? 'white' : ''} />
-              <BtnLight title='edit' color={isMobile ? 'white' : ''} />
+              <Btn title='delete' color={isMobile ? 'white' : ''} />
+              <Btn title='edit' color={isMobile ? 'white' : ''} />
             </Box>
             {/* <Box className={`${items.length > 3 && !isMobile ? 'quote-detail-r-box-desktop-03-scroll-y' : null}`}> */}
 
@@ -58,8 +58,8 @@ export const QuoteDetailR = (props) => {
 
             {/* </Box> */}
             <Box className={`quote-detail-r-box-${props.view}-05`}>
-              <BtnLight title='invoice pdf' color={isMobile ? 'white' : ''} />
-              <BtnLight title='quote pdf' color={isMobile ? 'white' : ''} />
+              <Btn title='invoice pdf' color={isMobile ? 'white' : ''} />
+              <Btn title='quote pdf' color={isMobile ? 'white' : ''} />
             </Box>
           </>
         ))}

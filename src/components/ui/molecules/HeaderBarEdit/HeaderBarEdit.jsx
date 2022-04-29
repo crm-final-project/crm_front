@@ -1,77 +1,89 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import { BrandEdit } from '../../atoms';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Button,
+  useScrollTrigger,
+  Slide, useMediaQuery,
+} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Brand } from '../../atoms';
 
-const settings = ['Profile'];
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: 'white',
+    ...theme.mixins.container,
+  },
+  drawerPaper: {
+    width: 240,
+  },
+  logo: {
+    marginRight: theme.spacing(3),
+  },
+  navBtn: {
+    textTransform: 'capitalize',
+    fontWeight: 600,
+    margin: '0 10px',
+  },
+  navRegLink: {
+    textDecoration: 'none',
+    // color: theme.palette.background.paper,
+  },
+  activeNav: {
+    color: theme.palette.primary.main,
+  },
+  OpenDrawerBtn: {
+    marginLeft: 'auto',
+    color: theme.palette.primary.main,
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
+  closeDrawerBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    ...theme.mixins.toolbar,
+  },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}));
+
+const HideOnScroll = ({ children, window }) => {
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+};
+
 
 export const HeaderBarEdit = (props) => {
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const classes = useStyles();
+const sizeButtonMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
+const sizeButtonTablet = useMediaQuery(theme => theme.breakpoints.down('md'));
 
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
-    <AppBar position='fixed'>
-      <Container maxWidth='xl'>
-        <Toolbar disableGutters>
-          <BrandEdit title='Informacion de Contacto'/>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            {!props.pageTitle ? "Informacion de Contacto": props.pageTitle}
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <React.Fragment>
+      <HideOnScroll {...props}>
+        <AppBar color="inherit" elevation={0}>
+          <Toolbar className={classes.toolbar}>
+                <Link to="/" sx={{ textDecoration: 'none' }}>
+                  <Brand />
+                </Link>
+                <Button variant="contained" color="success" size={sizeButtonMobile ? "small" : sizeButtonTablet ? "medium" : "large"}>Logout</Button>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      <Box mt={7} />
+      
+    </React.Fragment>
   );
 };
