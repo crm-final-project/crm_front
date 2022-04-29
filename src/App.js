@@ -8,6 +8,10 @@ import PublicRouter from './routes/public/router';
 import theme from './theme';
 import './App.css';
 
+const environments = require('./environments/index')
+
+environments();
+
 function App() {
 
   return (
