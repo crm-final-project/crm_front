@@ -16,10 +16,12 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import { login } from '../../../../api/login';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -31,13 +33,18 @@ export const LoginForm = (props) => {
 
   const handleLogin = async () => {
     const credentials = {
-      email,
+      username: email,
       password,
     };
-    const { data: { access_token }, status } = await login(credentials);
+    const {
+      data: { access_token },
+      status,
+    } = await login(credentials);
     if (status === 200) {
       window.localStorage.setItem('access_token', access_token);
-      window.location = '/quotes';
+      navigate('/quotes');
+
+      // window.location = '/quotes';
     }
   };
 

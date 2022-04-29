@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 import {
   LandingPage,
@@ -7,8 +7,17 @@ import {
   UserRegPage,
   RecoveryAccountPage,
   ValidateEmailPage,
+  Four0Four,
+  QuotesNewPage,
+  UserEditPage,
+  QuotesPage,
 } from '../../components/pages';
+
 import Loader from '../../components/helper/Loader';
+
+import { Loggin } from '../../utils/login';
+
+const loggin = new Loggin();
 
 const PublicRouter = () => {
   const [loading, setLoading] = useState(true);
@@ -16,7 +25,7 @@ const PublicRouter = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 800);
   });
   return (
     <>
@@ -26,15 +35,38 @@ const PublicRouter = () => {
         </Box>
       )}
       <Routes>
+        {/* public routes */}
         <Route path='/' element={<LandingPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<UserRegPage />} />
         <Route path='/forgot' element={<RecoveryAccountPage />} />
         <Route path='/reset-password/:userId' element={<ValidateEmailPage />} />
+
+        {/* private routes */}
+        <Route element={<RequireAuth />}>
+          <Route path='/quotes' element={<QuotesPage />} />
+          <Route path='/new' element={<QuotesNewPage />} />
+          <Route path='/validate' element={<ValidateEmailPage />} />
+          <Route path='/edit' element={<UserEditPage />} />
+          <Route path='/reset-password/:userId' element={<ValidateEmailPage />} />
+          <Route path='*' element={<Four0Four />} />
+        </Route>
+
         <Route path='*' element={<LoginPage />} />
       </Routes>
     </>
   );
 };
+
+function RequireAuth() {
+  let auth = loggin.isLoggedIn();;
+  let location = useLocation();
+
+  if (!auth) {
+    return <Navigate to="/login" state={{ from: location }} />;
+  }
+
+  return <Outlet />;
+}
 
 export default PublicRouter;
