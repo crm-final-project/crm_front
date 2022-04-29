@@ -1,4 +1,4 @@
-import { HeaderBarEdit, FlowOptions, EditForm } from '../../molecules';
+import { HeaderBarEdit, RegisterForm } from '../../molecules';
 import { Grid, useMediaQuery, Box } from '@mui/material';
 import {ReactComponent as UserEdit} from '../../../../assets/userEdit.svg';
 
@@ -17,8 +17,7 @@ export const UserEditForm = (props) => {
         alignItems="center"
         >  
         <Grid item xs sm md={6}>
-          <EditForm />
-          <FlowOptions btn1_title='Cancel' btn2_title='Edit' />
+          <RegisterForm title='Edit Information' titleBtn1='back' variantBtn2='contained' titleBtn2='save'/>
         </Grid>
         <Grid item xs={0} sm={0} md={4}>
           {hidden ? null : <UserEdit />}
