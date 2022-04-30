@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/crm_front/static/css/main.f2e6e1c6.css",
+    "main.js": "/crm_front/static/js/main.8318d297.js",
+    "static/media/andres_profile.jpg": "/crm_front/static/media/andres_profile.ef87f11073da0c493603.jpg",
+    "static/media/jose_profile.png": "/crm_front/static/media/jose_profile.2ac048cbb6f0009217ca.png",
+    "static/media/laptop-3.jpg": "/crm_front/static/media/laptop-3.a9a45b4b61197ef6b7c4.jpg",
+    "static/media/ronnie_profile.jpeg": "/crm_front/static/media/ronnie_profile.5b5473f0812e230ce031.jpeg",
+    "static/media/laptop-2.jpg": "/crm_front/static/media/laptop-2.47f9d0e7da2fa6f597cc.jpg",
+    "static/media/wilder_profile.jpeg": "/crm_front/static/media/wilder_profile.5fbef325d87c9ff8a380.jpeg",
+    "static/media/jhonatan_profile.jpeg": "/crm_front/static/media/jhonatan_profile.14eba210eb3ea679f8de.jpeg",
+    "static/media/laptop-1.jfif": "/crm_front/static/media/laptop-1.9ec6107e6f7bdf07563a.jfif",
+    "static/media/adrian_profile.jpeg": "/crm_front/static/media/adrian_profile.85681f95c0d71f00a233.jpeg",
+    "static/media/david_profile.jpeg": "/crm_front/static/media/david_profile.d25f758df466a6f438aa.jpeg",
+    "static/media/jesus_profile.jpeg": "/crm_front/static/media/jesus_profile.5586d00b7e422d3a2b0b.jpeg",
+    "static/media/userEdit.svg": "/crm_front/static/media/userEdit.3cb783265cd31049a0c34340bb8f85b5.svg",
+    "static/media/logoCRM.svg": "/crm_front/static/media/logoCRM.5cc991b8b8f03248fb3abe1ff645e4cc.svg",
+    "index.html": "/crm_front/index.html",
+    "main.f2e6e1c6.css.map": "/crm_front/static/css/main.f2e6e1c6.css.map",
+    "main.8318d297.js.map": "/crm_front/static/js/main.8318d297.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2e6e1c6.css",
+    "static/js/main.8318d297.js"
+  ]
+}
