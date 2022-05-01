@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/crm_front/static/css/main.f2e6e1c6.css",
-    "main.js": "/crm_front/static/js/main.0df28a7e.js",
+    "main.js": "/crm_front/static/js/main.068b0ccb.js",
     "static/media/andres_profile.jpg": "/crm_front/static/media/andres_profile.ef87f11073da0c493603.jpg",
     "static/media/jose_profile.png": "/crm_front/static/media/jose_profile.2ac048cbb6f0009217ca.png",
     "static/media/laptop-3.jpg": "/crm_front/static/media/laptop-3.a9a45b4b61197ef6b7c4.jpg",
@@ -17,10 +17,10 @@
     "static/media/logoCRM.svg": "/crm_front/static/media/logoCRM.5cc991b8b8f03248fb3abe1ff645e4cc.svg",
     "index.html": "/crm_front/index.html",
     "main.f2e6e1c6.css.map": "/crm_front/static/css/main.f2e6e1c6.css.map",
-    "main.0df28a7e.js.map": "/crm_front/static/js/main.0df28a7e.js.map"
+    "main.068b0ccb.js.map": "/crm_front/static/js/main.068b0ccb.js.map"
   },
   "entrypoints": [
     "static/css/main.f2e6e1c6.css",
-    "static/js/main.0df28a7e.js"
+    "static/js/main.068b0ccb.js"
   ]
 }
