@@ -14,7 +14,6 @@ import {
 } from '../../components/pages';
 
 import Loader from '../../components/helper/Loader';
-
 import { Loggin } from '../../utils/login';
 
 const loggin = new Loggin();
@@ -63,7 +62,7 @@ function RequireAuth() {
   let location = useLocation();
 
   if (!auth) {
-    return <Navigate to="/login" state={{ from: location }} />;
+    return <Navigate to="/" state={{ from: location }} />;
   }
 
   return <Outlet />;
